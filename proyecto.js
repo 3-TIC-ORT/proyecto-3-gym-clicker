@@ -144,12 +144,13 @@ document.getElementById("ejerciciospresbanca").addEventListener("click",() => ca
 document.getElementById("ejercicioscaminadora").addEventListener("click",() => calculodeprecio(ejerciciosInfo.ejercicioscaminadora,"precio4"));
 document.getElementById("ejerciciossentadilla").addEventListener("click",() => calculodeprecio(ejerciciosInfo.ejerciciossentadilla,"precio5"));
 
-window.addEventListener("beforeunload", function(e){
-    postData("Guardar infromacion", {
-        cantidades:cantidades
-      });    
- });
-
+function GuardadoAutomatico (){
+    setInterval(() => {  
+        postData("cantidades", cantidades);
+        console.log(holamartin)
+    }, 10000)
+}
+GuardadoAutomatico()
 
 
 // Backend

@@ -32,14 +32,14 @@ onEvent("comidas", (data) => {
     writeFileSync("datos.json", JSON.stringify(datosjugador, null, 2));
 });
 
-onEvent("ejercicios", (data) => {
+onEvent("cantidades", (data) => {
     console.log(data);
     let datosjugador = JSON.parse(readFileSync("datos.json", "utf-8"));
-    datosjugador[0].ejercicios = data.ejerciciosactuales; 
+    datosjugador[0].cantidades = data.cantidadesactuales; 
     writeFileSync("datos.json", JSON.stringify(datosjugador, null, 2));
 });
 
-//AARON
+//AARONd
 
 import readlineSync from 'readline-sync';
 import fs from 'fs';
