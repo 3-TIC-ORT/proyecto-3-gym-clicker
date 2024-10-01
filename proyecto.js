@@ -184,3 +184,13 @@ function toggleVisibility(triggerSelector, targetSelector) {
 }
 
 toggleVisibility('#trigger-div', '#target-div');
+
+//Log In:
+let usuario = document.querySelector(".userName").value;
+let contra = document.querySelector(".password").value;
+
+document.querySelector(".aceptar").addEventListener("click", ()=>{
+    postData("enviarUsuario", {contra: contra, usuario: usuario}, ()=>{
+
+    });
+})
