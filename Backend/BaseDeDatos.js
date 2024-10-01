@@ -1,4 +1,4 @@
-import { on } from 'events';
+
 import fs from 'fs';
 import { startServer, onEvent } from 'soquetic';
 //MARTIN
@@ -33,9 +33,58 @@ onEvent("comidas", (data) => {
     writeFileSync("datos.json", JSON.stringify(datosjugador, null, 2));
 });
 
-onEvent("ejercicios", (data) => {
+onEvent("cantidades", (data) => {
     console.log(data);
     let datosjugador = JSON.parse(readFileSync("datos.json", "utf-8"));
-    datosjugador[0].ejercicios = data.ejerciciosactuales; 
+    datosjugador[0].cantidades = data.cantidadesactuales; 
     writeFileSync("datos.json", JSON.stringify(datosjugador, null, 2));
 });
+//AARON
+
+import readlineSync from 'readline-sync';
+import fs from 'fs';
+
+// Leer los usuarios existentes desde el archivo JSON
+let usuarios = JSON.parse(fs.readFileSync('infoUsuario.json', "utf-8"));
+
+// Solicita el nombre de usuario y la contraseña
+let nombre = readlineSync.question("Iniciar sesión - Nombre de usuario: ");
+let password = readlineSync.question("Iniciar sesión - Contraseña: ", { hideEchoBack: true });
+
+// Busca el usuario en la lista
+let usuarioExistente = usuarios.find(u => u.nombre === nombre && u.contraseña === password);
+
+if (usuarioExistente) {
+    console.log("Inicio de sesión exitoso. ¡Bienvenido!");
+} else { 
+    console.log("Nombre de usuario o contraseña incorrectos.");
+}
+
+
+import readlineSync from 'readline-sync';
+import fs from 'fs';
+
+
+// Leer los usuarios existentes desde el archivo JSON
+ usuarios = JSON.parse(fs.readFileSync('infoUsuario.json', "utf-8"));
+
+// Registrar un nuevo usuario
+ nombre = readlineSync.question("Nombre de usuario: ");
+ password = readlineSync.question("Contraseña: ", { hideEchoBack: true });
+
+// Verifica si el usuario ya existe
+ usuarioExistente = usuarios.find(u => u.nombre === nombre);
+
+if (usuarioExistente) {
+    console.log("El usuario ya existe. Intenta con otro nombre de usuario.");
+} else {
+    let usuario = {
+        nombre: nombre,
+        contraseña: password
+    };
+
+    usuarios.push(usuario);
+    fs.writeFileSync('infoUsuario.json', JSON.stringify(usuarios, null, 2));
+    console.log("Usuario registrado exitosamente.");
+}
+startServer();
