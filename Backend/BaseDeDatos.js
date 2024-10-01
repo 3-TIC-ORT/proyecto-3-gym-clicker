@@ -1,6 +1,7 @@
 
 import fs from 'fs';
 import { startServer, onEvent } from 'soquetic';
+import readlineSync from 'readline-sync';
 //MARTIN
 onEvent("contadordecalorias", (data) => {
     let datosjugador = JSON.parse(readFileSync("datos.json", "utf-8"));
@@ -41,8 +42,7 @@ onEvent("cantidades", (data) => {
 });
 //AARON
 
-import readlineSync from 'readline-sync';
-import fs from 'fs';
+
 
 // Leer los usuarios existentes desde el archivo JSON
 let usuarios = JSON.parse(fs.readFileSync('infoUsuario.json', "utf-8"));
