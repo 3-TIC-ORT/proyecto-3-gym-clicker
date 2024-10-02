@@ -5,7 +5,10 @@
         "musculo": 0,
         "logros": [],
         "comidas": [],
-        "cantidades": []
+        "cantidades": [
+          "mancuernas",
+          ""
+      ]
     },
     {
       "nombre": "usuario1",

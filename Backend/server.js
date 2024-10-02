@@ -5,39 +5,39 @@ import { startServer, onEvent } from 'soquetic';
 //MARTIN
 onEvent("contadordecalorias", (data) => {
     let datosjugador = JSON.parse(readFileSync("datos.json", "utf-8"));
-    datosjugador[0].calorias = data.caloriasactuales; 
+    datosjugador[0].calorias = data; 
     writeFileSync("datos.json", JSON.stringify(datosjugador, null, 2));
 });
 
 onEvent("contadordedinero", (data) => {
     let datosjugador = JSON.parse(readFileSync("datos.json", "utf-8"));
-    datosjugador[0].dinero = data.dineroactual; 
+    datosjugador[0].dinero = data; 
     writeFileSync("datos.json", JSON.stringify(datosjugador, null, 2));
 });
 
 onEvent("contadormusculo", (data) => {
     let datosjugador = JSON.parse(readFileSync("datos.json", "utf-8"));
-    datosjugador[0].musculo = data.musculoactual; 
+    datosjugador[0].musculo = data; 
     writeFileSync("datos.json", JSON.stringify(datosjugador, null, 2));
 });
 
 onEvent("logros", (data) => {
     let datosjugador = JSON.parse(readFileSync("datos.json", "utf-8"));
-    datosjugador[0].logros = data.logrosactuales; 
+    datosjugador[0].logros = data.logros; 
     writeFileSync("datos.json", JSON.stringify(datosjugador, null, 2));
 });
 
 onEvent("comidas", (data) => {
     console.log(data);
     let datosjugador = JSON.parse(readFileSync("datos.json", "utf-8"));
-    datosjugador[0].comidas = data.comidaactuales; 
+    datosjugador[0].comidas = data.comidas; 
     writeFileSync("datos.json", JSON.stringify(datosjugador, null, 2));
 });
-
+ 
 onEvent("cantidades", (data) => {
     console.log(data);
     let datosjugador = JSON.parse(readFileSync("datos.json", "utf-8"));
-    datosjugador[0].cantidades = data.cantidadesactuales; 
+    datosjugador[0].cantidades = data.cantidades; 
     writeFileSync("datos.json", JSON.stringify(datosjugador, null, 2));
 });
 
