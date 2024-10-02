@@ -18,29 +18,26 @@
     </form>
 
     <p id="loginMessage"></p>
-
-    <script>
-        const loginForm = document.getElementById('loginForm');
-        const loginMessage = document.getElementById('loginMessage');
-
-        loginForm.addEventListener('submit', (event) => {
-            event.preventDefault(); 
-
-            const nombre = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-
-            postData('login', { nombre, password }, (response) => {
-                if (response.success) {
-                    loginMessage.textContent = 'Inicio de sesión exitoso.';
-                } else {
-                    loginMessage.textContent = 'Nombre de usuario o contraseña incorrectos.';
-                }
-            });
-        });
-        function postData(type, data, callback) {
-            socket.emit(type, data);
-            socket.on(type + 'Response', callback);
-        }
-    </script>
 </body>
+<script>
+    const loginForm = document.getElementById('loginForm');
+    const loginMessage = document.getElementById('loginMessage');
+
+    loginForm.addEventListener('submit', (event) => {
+        event.preventDefault(); 
+
+        const nombre = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        postData('login', { nombre, password }, (response) => {
+            console.log(response)
+            if (response.success) {
+                loginMessage.textContent = 'Inicio de sesión exitoso.';
+            } else {
+                loginMessage.textContent = `Nombre de usuario o contraseña incorrectos. ${response}`;
+            }
+        });
+    });
+   
+</script>
 </html>

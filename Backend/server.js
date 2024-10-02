@@ -41,26 +41,23 @@ onEvent("cantidades", (data) => {
     writeFileSync("datos.json", JSON.stringify(datosjugador, null, 2));
 });
 
-
-
-
-const fs = require('fs');
-const soquetic = require('soquetic');
-
 let usuarios = JSON.parse(fs.readFileSync('datos.json', 'utf-8'));
 
 
 onEvent('login', (data) => {
     const { nombre, password } = data;
-    
 
-    const usuarioExistente = usuarios.find(u => u.nombre === nombre && u.contraseña === password);
+    const usuarioExistente = usuarios.find(
+      (u) => u.nombre === nombre && u.contraseña === password
+    );
 
     if (usuarioExistente) {
-
-    sendEvent('loginResponse', { success: true, message: 'inicio de sesión exitoso.' });
+      return { success: true, message: "inicio de sesión exitoso." };
     } else {
-    sendEvent('loginResponse', { success: false, message: 'nombre de usuario o contraseña incorrectos.' });
+      return {
+        success: false,
+        message: "nombre de usuario o contraseña incorrectos.",
+      };
     }
 });
 
