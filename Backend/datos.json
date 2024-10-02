@@ -7,4 +7,14 @@
         "comidas": [],
         "cantidades": []
     }
+  
+  
+    ,{
+      "nombre": "usuario1",
+      "contraseña": "password1"
+    },
+    {
+      "nombre": "usuario2",
+      "contraseña": "password2"
+    }
   ]

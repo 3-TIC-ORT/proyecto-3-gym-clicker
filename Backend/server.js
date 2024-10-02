@@ -1,7 +1,7 @@
 
 import fs from 'fs';
 import { startServer, onEvent } from 'soquetic';
-import readlineSync from 'readline-sync';
+
 //MARTIN
 onEvent("contadordecalorias", (data) => {
     let datosjugador = JSON.parse(readFileSync("datos.json", "utf-8"));
@@ -40,51 +40,28 @@ onEvent("cantidades", (data) => {
     datosjugador[0].cantidades = data.cantidadesactuales; 
     writeFileSync("datos.json", JSON.stringify(datosjugador, null, 2));
 });
-//AARON
 
 
 
-// Leer los usuarios existentes desde el archivo JSON
-let usuarios = JSON.parse(fs.readFileSync('infoUsuario.json', "utf-8"));
 
-// Solicita el nombre de usuario y la contraseña
-let nombre = readlineSync.question("Iniciar sesión - Nombre de usuario: ");
-let password = readlineSync.question("Iniciar sesión - Contraseña: ", { hideEchoBack: true });
+const fs = require('fs');
+const soquetic = require('soquetic');
 
-// Busca el usuario en la lista
-let usuarioExistente = usuarios.find(u => u.nombre === nombre && u.contraseña === password);
-
-if (usuarioExistente) {
-    console.log("Inicio de sesión exitoso. ¡Bienvenido!");
-} else { 
-    console.log("Nombre de usuario o contraseña incorrectos.");
-}
+let usuarios = JSON.parse(fs.readFileSync('datos.json', 'utf-8'));
 
 
-import readlineSync from 'readline-sync';
-import fs from 'fs';
+onEvent('login', (data) => {
+    const { nombre, password } = data;
+    
 
+    const usuarioExistente = usuarios.find(u => u.nombre === nombre && u.contraseña === password);
 
-// Leer los usuarios existentes desde el archivo JSON
- usuarios = JSON.parse(fs.readFileSync('infoUsuario.json', "utf-8"));
+    if (usuarioExistente) {
 
-// Registrar un nuevo usuario
- nombre = readlineSync.question("Nombre de usuario: ");
- password = readlineSync.question("Contraseña: ", { hideEchoBack: true });
+    sendEvent('loginResponse', { success: true, message: 'inicio de sesión exitoso.' });
+    } else {
+    sendEvent('loginResponse', { success: false, message: 'nombre de usuario o contraseña incorrectos.' });
+    }
+});
 
-// Verifica si el usuario ya existe
- usuarioExistente = usuarios.find(u => u.nombre === nombre);
-
-if (usuarioExistente) {
-    console.log("El usuario ya existe. Intenta con otro nombre de usuario.");
-} else {
-    let usuario = {
-        nombre: nombre,
-        contraseña: password
-    };
-
-    usuarios.push(usuario);
-    fs.writeFileSync('infoUsuario.json', JSON.stringify(usuarios, null, 2));
-    console.log("Usuario registrado exitosamente.");
-}
 startServer();
