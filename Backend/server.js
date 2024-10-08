@@ -1,6 +1,7 @@
 
 import fs from 'fs';
 import { startServer, onEvent } from 'soquetic';
+import { readFileSync, writeFileSync } from 'fs';
 
 //MARTIN
 onEvent("contadordecalorias", (data) => {
@@ -37,9 +38,15 @@ onEvent("comidas", (data) => {
 onEvent("cantidades", (data) => {
     console.log(data);
     let datosjugador = JSON.parse(readFileSync("datos.json", "utf-8"));
-    datosjugador[0].cantidades = data.cantidades; 
+    datosjugador[0].mancuernas = data.mancuernas; 
+    datosjugador[0].bicicleta = data.bicicleta; 
+    datosjugador[0].pressbanca = data.pressbanca;
+    datosjugador[0].caminadora = data.caminadora; 
+    datosjugador[0].sentadilla = data.sentadilla; 
     writeFileSync("datos.json", JSON.stringify(datosjugador, null, 2));
 });
+
+
 
 let usuarios = JSON.parse(fs.readFileSync('datos.json', 'utf-8'));
 

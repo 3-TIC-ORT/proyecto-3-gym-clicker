@@ -1,21 +1,22 @@
 [
-    {
-        "calorias": 0,
-        "dinero": 0,
-        "musculo": 0,
-        "logros": [],
-        "comidas": [],
-        "cantidades": [
-          "mancuernas",
-          ""
-      ]
-    },
-    {
-      "nombre": "usuario1",
-      "contraseña": "password1"
-    },
-    {
-      "nombre": "usuario2",
-      "contraseña": "password2"
-    }
-  ]
+  {
+    "calorias": 0,
+    "dinero": 0,
+    "musculo": 0,
+    "logros": [],
+    "comidas": [],
+    "mancuernas": 1,
+    "bicicleta": 0,
+    "pressbanca": 0,
+    "caminadora": 0,
+    "sentadilla": 0
+  },
+  {
+    "nombre": "usuario1",
+    "contraseña": "password1"
+  },
+  {
+    "nombre": "usuario2",
+    "contraseña": "password2"
+  }
+]

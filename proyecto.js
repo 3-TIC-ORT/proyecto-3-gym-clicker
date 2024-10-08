@@ -147,7 +147,7 @@ document.getElementById("ejerciciossentadilla").addEventListener("click",() => c
 function GuardadoAutomatico (){
     setInterval(() => {  
         postData("cantidades", cantidades);
-        console.log(holamartin)
+        console.log("holamartin")
     }, 10000)
 }
 GuardadoAutomatico()
