@@ -151,17 +151,11 @@ function GuardadoAutomatico (){
     }, 10000)
 }
 GuardadoAutomatico()
-
-
+fetchData("datos",(datos)=>{
+    cantidades.mancuernas = datos.mancuernas
+})
 // Backend
-// Carga de datos desde el almacenamiento local
-function loadGameData() {
     let calorias = 0;
-    cantidaddedinero = Number(localStorage.getItem("cantidaddedinero")) || 0;
-    let contadorCalorias = document.getElementById("contadorDeCalorias");
-    contadorCalorias.innerText = calorias;
-}
-
 for (let i in ejerciciosInfo){
     document.getElementById(i).addEventListener("click",()=>{
         cantidaddemusculo += ejerciciosInfo[i].produccion;

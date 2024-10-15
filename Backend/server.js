@@ -52,7 +52,10 @@ onEvent("cantidades", (data) => {
     return data
 });
 
-
+onEvent("todo",()=>{
+let datos = JSON.parse(readFileSync("datos.json", "utf-8"));
+return datos
+})
 
 let usuarios = JSON.parse(fs.readFileSync('datos.json', 'utf-8'));
 
