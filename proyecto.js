@@ -148,12 +148,13 @@ function GuardadoAutomatico (){
     setInterval(() => {  
         postData("cantidades", cantidades);
         console.log("holamartin")
-    }, 10000)
+    }, 20000)
 }
 GuardadoAutomatico()
-fetchData("datos",(datos)=>{
-    cantidades.mancuernas = datos.mancuernas
-})
+function actualizarDatos (){fetchData("datos",(data)=>{
+    cantidades.mancuernas = data.mancuernas
+})}
+document.addEventListener("DOMContentLoaded",actualizarDatos)
 // Backend
     let calorias = 0;
 for (let i in ejerciciosInfo){

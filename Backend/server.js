@@ -52,7 +52,7 @@ onEvent("cantidades", (data) => {
     return data
 });
 
-onEvent("todo",()=>{
+onEvent("datos",()=>{
 let datos = JSON.parse(readFileSync("datos.json", "utf-8"));
 return datos
 })
