@@ -48,24 +48,62 @@ onEvent("cantidades", (data) => {
 
 
 
+
+
 let usuarios = JSON.parse(fs.readFileSync('datos.json', 'utf-8'));
 
 
 onEvent('login', (data) => {
-    const { nombre, password } = data;
+  const { nombre, password } = data;
+  let usuarioExistente = false;
 
-    const usuarioExistente = usuarios.find(
-      (u) => u.nombre === nombre && u.contraseña === password
-    );
+  // Recorremos el array de usuarios manualmente
+  for (let i = 0; i < usuarios.length; i++) {
+      if (usuarios[i].nombre === nombre && usuarios[i].contraseña === password) {
+          usuarioExistente = true;
+          break;
+      }
+  }
 
-    if (usuarioExistente) {
-      return { success: true, message: "inicio de sesión exitoso." };
-    } else {
+  if (usuarioExistente = true) {
+      return { message: "Inicio de sesión exitoso." };
+  } else {
       return {
-        success: false,
-        message: "nombre de usuario o contraseña incorrectos.",
+          
+          message: "Nombre de usuario o contraseña incorrectos.",
       };
-    }
+  }
 });
 
+// Evento para el registro sin `.find()`
+onEvent('register', (data) => {
+  const { nombre, password } = data;
+
+  // Leer los datos del archivo JSON y parsearlos
+  let usuarios = JSON.parse(fs.readFileSync('datos.json', 'utf-8'));
+  let usuarioExistente = false;
+
+  // Recorremos el array de usuarios manualmente
+  for (let i = 0; i < usuarios.length; i++) {
+      if (usuarios[i].nombre === nombre) {
+          usuarioExistente = true;
+          break;
+      }
+  }
+
+  if (usuarioExistente) {
+      console.log("El nombre de usuario ya existe.");
+  } else {
+      // Crear un nuevo array de usuarios manualmente
+      const nuevoUsuario = { nombre, contraseña: password };
+      const usuariosActualizados = [...usuarios, nuevoUsuario];
+
+      // Guardar el nuevo array en el archivo JSON
+      fs.writeFileSync('datos.json', JSON.stringify(usuariosActualizados, null, 2));
+      console.log("Registro exitoso.");
+  }
+});
+
+
 startServer();
+

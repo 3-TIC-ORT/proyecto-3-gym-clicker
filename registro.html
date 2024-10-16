@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.4/socket.io.js"></script>
+    <script src="server.js"></script> 
+</head>
+<body>
+    <h1>Registro</h1>
+    <form id="registerForm">
+        <label for="newUsername">Nombre de usuario:</label>
+        <input type="text" id="newUsername" required><br>
+        <label for="newPassword">Contraseña:</label>
+        <input type="password" id="newPassword" required><br>
+        <button type="submit">Registrarse</button>
+    </form>
+
+    <p id="registerMessage"></p>
+    <button id="login">Login</button>
+
+
+    <script>
+        const registerForm = document.getElementById('registerForm');
+        const registerMessage = document.getElementById('registerMessage');
+        const login = document.getElementById('login');
+
+
+        registerForm.addEventListener('submit', (event) => {
+            event.preventDefault(); 
+
+            const nombre = document.getElementById('newUsername').value;
+            const password = document.getElementById('newPassword').value;
+
+            postData('register', { nombre, password }, (response) => {
+                if (response.success) {
+                    registerMessage.textContent = 'Registro exitoso.';
+                } else {
+                    registerMessage.textContent = `Error: ${response.message}`;
+                }
+            });
+        });
+        login.addEventListener('click', () => {
+            window.location.href = 'login.html';  // Cambia a la página de registro
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
