@@ -15,13 +15,14 @@ var comidasInfo = {
 };
 
 var cantidades = {
-    "mancuernas":0,
-    "bicicleta":0,
-    "pressbanca":0,
-    "caminadora":0,
-    "sentadilla":0,
+    mancuernas:0,
+    bicicleta:0,
+    pressbanca:0,
+    caminadora:0,
+    sentadilla:0
 
 }
+
 
 
 let cantidaddedinero = 0;
@@ -33,7 +34,9 @@ cantidaddedinero=Number(document.getElementById("titulodinero").innerText);
 function click() {
     contadordecalorias += 1;
     console.log(contadordecalorias);
+    console.log(cantidades.mancuernas)
     document.getElementById("contadorDeCalorias").innerHTML = contadordecalorias;
+
 }
 document.getElementById("circulo").addEventListener("click", click);
 
@@ -93,16 +96,14 @@ function calculodeprecio (ejerciciosInfo,idejercicio){
     console.log(ejerciciosInfo.costo);
     setInterval(() => {  contadordemusculo = contadordemusculo+ ejerciciosInfo.produccion;
     document.getElementById("contadorDeMusculo").innerHTML = contadordemusculo;
-    console.log("hola");
-
     }, 10000);
 
     document.getElementById(idejercicio).innerHTML = Math.ceil(ejerciciosInfo.costo);
-
+    console.log(cantidades.mancuernas)
     switch (idejercicio){
     case "precio1":
-        cantidades.mancuernas ++;    
-        console.log ("mancuenas:" + cantidades.mancuernas );
+        cantidades.mancuernas++;    
+        console.log ("mancuernas:" + cantidades.mancuernas );
 
         break
     case "precio2":
@@ -147,11 +148,12 @@ document.getElementById("ejerciciossentadilla").addEventListener("click",() => c
 function GuardadoAutomatico (){
     setInterval(() => {  
         postData("cantidades", cantidades);
-        console.log("holamartin")
+        console.log(cantidades.mancuernas)
     }, 20000)
 }
 GuardadoAutomatico()
 function actualizarDatos (){fetchData("datos",(data)=>{
+    console.log(data)
     cantidades.mancuernas = data.mancuernas
 })}
 document.addEventListener("DOMContentLoaded",actualizarDatos)
