@@ -24,7 +24,7 @@ var cantidades = {
 }
 
 
-
+let calorias = 0;
 let cantidaddedinero = 0;
 let contadordecalorias = Number(document.getElementById("contadorDeCalorias").innerText);
 let cantidaddemusculo = 0;
@@ -159,7 +159,7 @@ function actualizarDatos (){fetchData("datos",(data)=>{
 })}
 document.addEventListener("DOMContentLoaded",actualizarDatos)
 
-    let calorias = 0;
+    
 for (let i in ejerciciosInfo){
     document.getElementById(i).addEventListener("click",()=>{
         cantidaddemusculo += ejerciciosInfo[i].produccion;
