@@ -24,7 +24,7 @@ var cantidades = {
 }
 
 
-
+let calorias = 0;
 let cantidaddedinero = 0;
 let contadordecalorias = Number(document.getElementById("contadorDeCalorias").innerText);
 let cantidaddemusculo = 0;
@@ -53,7 +53,6 @@ function toggleMenu() {
             dropdown.style.transition = '';
         }, 300);
     } else {
-      
         dropdown.style.visibility = 'visible';
         dropdown.style.height = '100vh'; 
         dropdown.style.opacity = '1';
@@ -152,13 +151,15 @@ function GuardadoAutomatico (){
     }, 20000)
 }
 GuardadoAutomatico()
+
 function actualizarDatos (){fetchData("datos",(data)=>{
     console.log(data)
-    cantidades.mancuernas = data.mancuernas
+    cantidades.mancuernas = data[0].mancuernas
+    console.log(cantidades)
 })}
 document.addEventListener("DOMContentLoaded",actualizarDatos)
-// Backend
-    let calorias = 0;
+
+    
 for (let i in ejerciciosInfo){
     document.getElementById(i).addEventListener("click",()=>{
         cantidaddemusculo += ejerciciosInfo[i].produccion;

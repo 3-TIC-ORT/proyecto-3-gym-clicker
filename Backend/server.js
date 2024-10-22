@@ -39,7 +39,7 @@ onEvent("comidas", (data) => {
     writeFileSync("datos.json", JSON.stringify(datosjugador, null, 2));
     return data
 });
- 
+
 onEvent("cantidades", (data) => {
     console.log(data);
     let datosjugador = JSON.parse(readFileSync("datos.json", "utf-8"));
