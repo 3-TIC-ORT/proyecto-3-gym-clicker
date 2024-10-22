@@ -18,5 +18,13 @@
   {
     "nombre": "usuario2",
     "contraseña": "password2"
+  },
+  {
+    "nombre": "aaron",
+    "contraseña": "minecraft"
+  },
+  {
+    "nombre": "Maria jose ás",
+    "contraseña": "holajose"
   }
 ]

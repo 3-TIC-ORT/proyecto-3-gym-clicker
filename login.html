@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.4/socket.io.js"></script>
-    <script src="server.js"></script>
+    <script src="socket.js"></script>
 </head>
 <body>
     <h1>Login</h1>
@@ -19,31 +19,30 @@
     <p id="loginMessage"></p>
     
     <button id="signupButton">Sign Up</button>
-
-    <script>
-        const loginForm = document.getElementById('loginForm');
-        const loginMessage = document.getElementById('loginMessage');
-        const signupButton = document.getElementById('signupButton');
-
-        loginForm.addEventListener('submit', (event) => {
-            event.preventDefault(); 
-
-            const nombre = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-
-            postData('login', { nombre, password }, (response) => {
-                console.log(response)
-                if (response.success) {
-                    loginMessage.textContent = 'Inicio de sesión exitoso.';
-                } else {
-                    loginMessage.textContent = `Nombre de usuario o contraseña incorrectos. ${response}`;
-                }
-            });
-        });
-
-        signupButton.addEventListener('click', () => {
-            window.location.href = 'registro.html';  
-        });
-    </script>
 </body>
+<script>
+    const loginForm = document.getElementById('loginForm');
+    const loginMessage = document.getElementById('loginMessage');
+    const signupButton = document.getElementById('signupButton');
+
+    loginForm.addEventListener('submit', (event) => {
+        event.preventDefault(); 
+
+        const nombre = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        postData('login', { nombre, password }, (response) => {
+            console.log(response)
+            if (response.success) {
+                loginMessage.textContent = response.message;
+            } else {
+                loginMessage.textContent = response.message;
+            }
+        });
+    });
+
+    signupButton.addEventListener('click', () => {
+        window.location.href = 'registro.html';  
+    });
+</script>
 </html>
