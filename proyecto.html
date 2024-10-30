@@ -1,15 +1,34 @@
 <!DOCTYPE html>
 <html lang="es">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PROYECTO TIC</title>
     <link rel="stylesheet" href="estilos.css">
 
+
 </head>
 
+
 <body>
+    <div id="id01" class="modal">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+        <form class="modal-content" action="/action_page.php">
+          <div class="container">
+            <h1>Delete Account</h1>
+            <p>Are you sure you want to delete your account?</p>
+         
+            <div class="clearfix">
+              <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+              <button type="button" onclick="document.getElementById('id01').style.display='none'" class="deletebtn">Delete</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+
     <div id="container" class="container">
         <div class="header">
             <div class="dropdown">
@@ -17,42 +36,41 @@
                 <div id="myDropdown" class="dropdown-content">
                     <h2>Retirar dinero</h2>
                     <div class="menu">
-                        <div id="caja1" class="caja1"><div class="cajanegra"><input type="number" class="input1" id="input1"  min="0"></div></div>
+                        <div id="caja1" class="caja1"><div class="cajanegra"><input type="number" min="1" max="5" class="input1" id="input1"></div></div>
                         <div id="caja2" class="caja2"><div class="cajanegra" id="cajanegra"></div></div>
                         <div id="caja3" class="caja1"><div class="cajanegra"><input type="text"></div></div>
                         <div id="caja4" class="caja2"><div class="cajanegra"></div></div>
                     </div>
                     <div>
-                    <h2>Cofre Gratis que tiene precio</h2>
+                    <h2>Cofre Gratis ponele</h2>
                     </div>
-                    <div id= "cofreGratis" class="cajagris">
-                        <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<div class='roulette-wrapper'>
-  <div class='selector'></div>
-  <div class='wheel'></div>
-</div>
-<div>
-  <input placeholder='outcome'>
-  <button>
-    RUEDA LA RULETA
-  </button>
-</div>
-                    </div>
+                    <div class="cajagris">Hola</div>
+
+
                     <div>
-                        <h2>Cofre GRATIS CON MUCHO PRECIO</h2>
+                        <h2>Cofre Gratis 2.0 ponele</h2>
                         </div>
                         <div class="cajagris">Hola</div>
-                    
+                   
                 </div>
-                
+               
             </div>
-            
+           
+        </div>
+       
+
+
+        <div class="botonNuevo" id="BotonReborn">
+
+
+        <h2>Reborn</h2>
+       
+       
         </div>
 
-        <div class="botonNuevo"><h2>Reborn</h2></div>
 
-        <div id="trigger-div"><h2>Log in|Sign Up</h2></div>
+        <div></div>
+
 
         <div id="shop" class="Shop">
             <div>
@@ -96,23 +114,20 @@
             </div>  
             <div class="abajo">⬇</div>
 
+
         </div>
 
-        <div id="Fatguy" class="Fatguy">´
+
+        <div id="Fatguy" class="Fatguy">
             <div>
                 <h2 id= "contadorDeCalorias" class="contadordecalorias">0</h2>
                 <h2 id="contadorDeMusculo" class="contadordecalorias">0</h2>
             </div>
             <div class="Fat">
 
-                <div id="target-div" class="hidden">
-                   <h4>Usuario</h4>
-                   <input type="text" class="hola">
-                   <h4>Contraseña</h4>
-                   <input type="text" class="hola">
-                </div>
 
-                
+               
+
 
                 <dialog id="miDialogo">
                     <p>Este es un cuadro de diálogo.</p>
@@ -144,23 +159,31 @@
                         <div class="RebornChose">Opcion 3</div>
                     </div>  
                 </dialog>
-
-            
+                   
+           
                 <div id="pill" class="pill"></div>
                 <div id="circulo" class="circulo"></div>
                 <div id="trigger-div"><button id="abrirDialogo">Boton de Skin</button></div>
 
-                
+
+               
             </div>
         </div>
+
 
         <div id="Food" class="Food">
             <div>
                 <h2 id="titulofood" class="titulofood">Food</h2>
                 <h2 id="borrar" class="borrar">h</h2>
 
+
             </div>
             <div id="mama" class="mama">
+
+
+
+
+
 
 
 
@@ -184,25 +207,33 @@
                 <div class="abajo2">⬇</div>
             </div>
 
+
         </div>
 
+
         <div></div>
+
 
         <div class="Cofre">
            
         </div>
 
+
         <div></div>
+
 
     </div>
 
 
+
+
     <script src="proyecto.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.4/socket.io.js"></script>
-    <script src="socket.js"></script>
-    <script src="server.js"></script>
+
 
     </div>
 </body>
 
+
 </html>
+
+

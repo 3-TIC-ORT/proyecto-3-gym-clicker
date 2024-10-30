@@ -9,10 +9,9 @@ body {
     width: 100vw;
     height: 100vh;
     user-select: none;
-    position: absolute;
-    z-index: 2;
-    
+   
 }
+
 
 .container {
     display: grid;
@@ -22,11 +21,13 @@ body {
     width: 100%;
     height: 100%;
 
+
 }
+
 
 .header{
     grid-column: span 1;
-    background-color: #D9D9D9; 
+    background-color: #D9D9D9;
     color: black;
     cursor: pointer;
     font-size: 16px;
@@ -36,8 +37,9 @@ body {
     height: 1fr;
     border-radius: 1vh;
 
-    
-    
+
+   
+   
 }
 .Shop {
     display: flex;
@@ -45,12 +47,14 @@ body {
     justify-content: space-around;
     align-items: center;
     height: 85vh;
+
+
 }
 .ejercicios{
     display: grid;
     grid-template-columns: 15% 5% 60% 5% 15%;
-    background-color: #D9D9D9; 
-    
+    background-color: #D9D9D9;
+   
     color: black;
     cursor: pointer;
     font-size: 16px;
@@ -65,14 +69,18 @@ body {
 }
 
 
+
+
 .ejercicios-hover {
     transform: scale(1.5);
 }
+
 
 #ejerciciosmancuernas{
     display: grid;
     grid-template-columns: 15% 5% 60% 5% 15%;
 }
+
 
 .w{
     margin: auto;
@@ -81,16 +89,18 @@ body {
     border: black;
 }
 
+
 .w2{
-   background-color: #f4f4f4; 
+   background-color: #f4f4f4;
    width: 100%;
     height: 100%;
 }
 
+
 .tituloshop{
     display: flex;
     color: black;
-    background-color: #D9D9D9; 
+    background-color: #D9D9D9;
     border: 4px solid;
     border-color: black;
     justify-content: center;
@@ -100,17 +110,17 @@ body {
 .titulofood{
     display: flex;
     color: black;
-    background-color: #D9D9D9; 
+    background-color: #D9D9D9;
     border: 4px solid;
     border-color: black;
     justify-content: center;
     height: 60px;
     width: 400px;
 }
-.contadordecalorias{ 
+.contadordecalorias{
     display: flex;
     color: black;
-    background-color: #D9D9D9; 
+    background-color: #D9D9D9;
     border: 4px solid;
     border-color: black;
     justify-content: center;
@@ -119,8 +129,9 @@ body {
     width: 400px;
 }
 
+
 .Production{
-    background-color: #D9D9D9; 
+    background-color: #D9D9D9;
     border: 4px solid;
     border-color: black;
     color: black;
@@ -129,7 +140,9 @@ body {
     border-radius: 5px;
     margin: 2px;
 
+
 }
+
 
 .contador{
     justify-content: center;
@@ -140,10 +153,10 @@ img{
     height: 300px;
  
     align-items: center;
-  
+ 
 }
 .circulo{
-    background: lightblue;
+    background-color: lightblue;
     border-radius: 50%;
     width: 300px;
     height: 300px;
@@ -151,14 +164,16 @@ img{
     cursor: pointer;
     padding:1px;
     position: relative;
-    right: 40px;
-    top: -300px;
-    transition: transform 0.3s ease; 
+    right: 0px;
+   
+    transition: transform 0.3s ease;
 }
 
 
+
+
 .Comida{
-    background-color: #D9D9D9; 
+    background-color: #D9D9D9;
     border: 4px solid;
     border-color: black;
     color: black;
@@ -168,6 +183,7 @@ img{
     margin: 2px;
     width: 29vw;
     height: 8vh;
+
 
 }
 .Cof{
@@ -183,9 +199,9 @@ img{
     border-radius: 25px;
     border: 1px solid #ccc;
    
-    
+   
 }
-  
+ 
 .Fat{
     align-items: center;
     justify-content: center;
@@ -200,11 +216,11 @@ img{
 }
 .borrar{
     color:#f4f4f4;
-}   
+}  
 .abajo{
     display: flex;
     color: black;
-    background-color: #D9D9D9; 
+    background-color: #D9D9D9;
     border: 4px solid;
     border-color: black;
     justify-content: center;
@@ -215,7 +231,7 @@ img{
 .abajo2{
     display: flex;
     color: black;
-    background-color: #D9D9D9; 
+    background-color: #D9D9D9;
     border: 4px solid;
     border-color: black;
     justify-content: center;
@@ -225,7 +241,7 @@ img{
 .titulodinero{
     display: flex;
     color: black;
-    background-color: #D9D9D9; 
+    background-color: #D9D9D9;
     border: 4px solid;
     border-color: black;
     justify-content: center;
@@ -235,7 +251,9 @@ img{
     transition: background-color 1s linear;
 }
 
+
   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
 
 * {
     margin: 0;
@@ -265,9 +283,11 @@ body {
     transition: height 0.3s ease;
 }
 
+
 .sidebar :target {
     height: 500px;
 }
+
 
 .dropbtn {
     background-color: #3498DB;
@@ -281,10 +301,12 @@ body {
     height: 50px;
 }
 
+
 .dropdown {
     position: relative;
     display: inline-block;
 }
+
 
 .dropdown-content {
     position: absolute;
@@ -306,11 +328,14 @@ body {
     justify-items: center;
 }
 
+
 .show {
     opacity: 1;
     height: auto;
     visibility: visible;
 }
+
+
 
 
 .menu{
@@ -325,7 +350,8 @@ body {
     align-items: center;
     align-items: center;
     justify-items: center;
-    
+   
+
 
 }
 .cajanegra{
@@ -350,13 +376,15 @@ body {
     background-color: grey;
     text-align: center;
     color: black;
-    background-color: #D9D9D9; 
+    background-color: #D9D9D9;
     border: 4px solid;
     border-color: black;
     justify-content: center;
     height: 60px;
     width: 400px;
 }
+
+
 
 
 input{
@@ -369,23 +397,26 @@ input{
     border-color: black;
 }
 
+
 .input1{
     width: 90px;
     height: 90px;
 }
 .hidden {
-    opacity: 0; 
-    transition: opacity 0.3s ease-in-out; 
-    height: 0; 
-    overflow: hidden; 
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    height: 0;
+    overflow: hidden;
     background-color: silver;
+
 
 }
 
+
 .visible {
-    opacity: 1; 
-    transition: opacity 0.3s ease-in-out; 
-    height: auto; 
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+    height: auto;
     height: 75px;
     width: 250px;
     background-color: silver;
@@ -393,66 +424,192 @@ input{
     top:-150px;
 }
 
+
 .hola{
   width: 200px;
   height: 15px;
 }
-.xd{
+
+
+dialog {
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #474e5d;
+    padding-top: 50px;
+  }
+ 
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+ 
+  /* Style the horizontal ruler */
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+   
+  /* The Modal Close Button (x) */
+  .close {
     position: absolute;
-    z-index: 0;
-}
-.roulette-wrapper{
-  position:relative;
-  display:flex;
-  justify-content:center;
-  width:100%;
-  margin:0 auto;
-  overflow:hidden;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+  }
+ 
+  .close:hover,
+  .close:focus {
+    color: #f44336;
+    cursor: pointer;
+  }
+ 
+
+
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+ 
+  .controlright {
+    width: 100px;
+    height: 100px;
+    border-bottom: 80px solid whitesmoke;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    transform: rotate(90deg);
+
+
 }
 
-.roulette-wrapper .selector{
-  width:3px;
-  background:grey;
-  left:50%;
-  height:100%;
-  transform:translate(-50%,0%);
-  position:absolute;
-  z-index:2;
+
+.controlleft {
+    width: 100px;
+    height: 100px;
+    border-bottom: 80px solid whitesmoke;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    transform: rotate(-90deg);
+
+
 }
 
-.roulette-wrapper .wheel{
-  display:flex;
+
+.circulo2{
+    background: #f44336;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    align-content: center;
+    cursor: pointer;
+    padding:1px;
+    position: relative;
+    right: 0px;
+   
+    transition: transform 0.3s ease;
+    display:none;
 }
 
-.roulette-wrapper .wheel .row{
-  display:flex;
+
+.circulo3{
+    background: #474e5d;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    align-content: center;
+    cursor: pointer;
+    padding:1px;
+    position: relative;
+    right: 0px;
+   
+    transition: transform 0.3s ease;
+    display:none;
+
+
 }
 
-.roulette-wrapper .wheel .row .card{
-  height:75px;
-  width:75px;
-  margin:3px;
-  border-radius:8px;
-  border-bottom:3px solid rgba(0,0,0,0.2);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:white;
-  font-size:1.5em;
+
+.circulo4{
+    background: violet;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    align-content: center;
+    cursor: pointer;
+    padding:1px;
+    position: relative;
+    right: 0px;
+   
+    transition: transform 0.3s ease;
+    display:none;
+
+
 }
 
-.card.red{
-  background:#F95146;
+
+.skindefault{
+    background: lightblue;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    align-content: center;
+    cursor: pointer;
+    padding:1px;
+    position: relative;
+    right: 0px;
+   
+    transition: transform 0.3s ease;
+    display:none;
 }
 
-.card.black{
-  background:#2D3035;
+
+dialog  {
+    z-index: 10;
+    margin-top: 10px;
+    background: transparent;
+    border:transparent;
+    width: 600px;
+    height: 200px;
+   
+  }
+
+
+.Options{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+   
 }
 
-.card.green{
-  background:#00C74D;
+
+.RebornChose{
+    background-color: #90EE90;
+    border: 5px solid black;
 }
 
-*{
-  box-sizing:border-box;
+
+.HiddenOptions{
+    z-index: -1;
 }
+
