@@ -13,6 +13,31 @@ var comidasInfo = {
     'Proteinaenpolvo': { costo: 500, potenciador: 1.40, duracion: 5000 },
     'farmacity': { costo: 500, potenciador: 1.50, duracion: 5000 }
 };
+let logros ={
+
+    HolaGym:0, //logro por clikiar por primera ves la panza
+    FeticheRaro:0, //Por tocar la panza 10000 veces
+    GymAmeteur:0, //por comprar la priemar estrctura del gym
+    Emprendedor:0, //compra dinero por primera vez
+    LudopataEnPotencia:0, //Usa la ruleta por primera vez
+    ALaModa:0, //Cambia tu skin por primera vez
+    OnFire:0,// quema 100 calorias
+    cienmusculo:0,
+    entradaEnCalor:0,//compra primera estructura
+    NoComer:0,//No compreas comidas en un lapso de 10m
+    BancaRota:0, //Intenta comprar una estructura cuando no tengas gita
+    VolumenRuidoso:0, //Compra todas las comidas disponibles
+    TocaUsarLaHerenciaDeLaAbuela:0, //Pierde tu dinero en la ruleta
+    SomeBodyTold:0, //Equipate la skin de shrek
+    SeEntregaEl4:0, //Llegar a 1m cantidad de calorias
+    diezmilmusculo:0,
+    diezmilcalorias:0,
+    cienmilcalorias:0,
+    cienmilmusculo:0,
+    millonariocalorias:0,
+    millonariomusculo:0,
+}
+
 
 var cantidades = {
     mancuernas:0,
@@ -34,10 +59,17 @@ cantidaddedinero=Number(document.getElementById("titulodinero").innerText);
 function click() {
     contadordecalorias += 1;
     console.log(contadordecalorias);
-    console.log(cantidades.mancuernas)
+    console.log(cantidades.mancuernas);
     document.getElementById("contadorDeCalorias").innerHTML = contadordecalorias;
 
+
+    if (logros.HolaGym === 0) {
+        logros.HolaGym = 1; 
+        alert("¡Logro Desbloqueado: HolaGym!"); 
+        console.log("Logro HolaGym desbloqueado");
+    }
 }
+
 document.getElementById("circulo").addEventListener("click", click);
 
 function toggleMenu() {
