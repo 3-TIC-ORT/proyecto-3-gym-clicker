@@ -167,31 +167,150 @@ for (let i in ejerciciosInfo){
     })
 }
 
-function toggleVisibility(triggerSelector, targetSelector) {
-    const triggerElement = document.querySelector(triggerSelector);
-    const targetElement = document.querySelector(targetSelector);
 
-    triggerElement.addEventListener('click', function() {
-        if (targetElement.classList.contains('hidden')) {
-            targetElement.classList.remove('hidden');
-            targetElement.classList.add('visible'); 
-        } else {
-            targetElement.classList.remove('visible');
-            targetElement.classList.add('hidden'); 
-        }
-    });
+
+function toggleMenu() {
+    var dropdown = document.getElementById("myDropdown");
+
+
+    if (dropdown.classList.contains("show")) {
+        dropdown.style.transition = 'none';
+        dropdown.style.height = '0';
+        dropdown.style.opacity = '0';
+        dropdown.style.visibility = 'hidden';
+
+
+        setTimeout(() => {
+            dropdown.style.transition = '';
+        }, 300);
+    } else {
+     
+        dropdown.style.visibility = 'visible';
+        dropdown.style.height = '100vh';
+        dropdown.style.opacity = '1';
+
+
+        dropdown.offsetHeight;
+
+
+        dropdown.style.transition = 'height 0.3s ease, opacity 0.3s ease';
+    }
+
+
+   
+    dropdown.classList.toggle("show");
 }
 
-toggleVisibility('#trigger-div', '#target-div');
 
-$(document).ready(function() {
-  initWheel();
- 
-  $('button').on('click', function(){
-    var outcome = parseInt($('input').val());
-    spinWheel(outcome);
-  });
+
+
+document.getElementById("caja2").addEventListener("click", () => {
+    let cambio = document.getElementById("cajanegra").textContent
+
+
+    if ((contadordecalorias >= Number(cambio) * 5)&& (Number(cambio) >= 0)) {
+        console.log(cantidaddedinero);
+        contadordecalorias -= Number(cambio) * 5;
+        console.log(cantidaddedinero);
+       
+        document.getElementById("contadorDeCalorias").textContent = contadordecalorias;
+        cantidaddedinero += Number(document.getElementById("cajanegra").textContent);
+   
+        document.getElementById("input1").value = 0;
+        document.getElementById("cajanegra").textContent = 0;
+        document.getElementById("titulodinero").textContent = cantidaddedinero;
+    }
 });
+
+
+document.getElementById("input1").addEventListener("input", () => {
+    if (Number(document.getElementById("input1").textContent) >= 0) {
+        document.getElementById("cajanegra").textContent = Math.floor(Number(document.getElementById("input1").value) / 5);
+    }
+});
+
+
+
+
+function calculodeprecio (ejerciciosInfo,idejercicio){
+   
+    if (cantidaddedinero >= ejerciciosInfo.costo){
+    console.log(cantidaddedinero);
+    cantidaddedinero = cantidaddedinero - ejerciciosInfo.costo;
+    ejerciciosInfo.costo = ejerciciosInfo.costo*1.15;
+    document.getElementById("titulodinero").innerHTML = cantidaddedinero;
+    console.log(ejerciciosInfo.costo);
+    setInterval(() => {  contadordemusculo = contadordemusculo+ ejerciciosInfo.produccion;
+    document.getElementById("contadorDeMusculo").innerHTML = contadordemusculo;
+    console.log("hola");
+
+
+    }, 10000);
+
+
+    document.getElementById(idejercicio).innerHTML = Math.ceil(ejerciciosInfo.costo);
+
+
+    switch (idejercicio){
+    case "precio1":
+        cantidades.mancuernas ++;    
+        console.log ("mancuenas:" + cantidades.mancuernas );
+
+
+        break
+    case "precio2":
+        cantidades.bicicleta ++;  
+        console.log ("bicicleta:" + cantidades.bicicleta );
+
+
+         
+        break    
+    case "precio3":
+        cantidades.pressbanca ++;  
+        console.log ("pressbanca:" + cantidades.pressbanca );
+ 
+        break
+    case "precio4":
+        cantidades.caminadora ++;  
+        console.log ("caminadora:" + cantidades.caminadora );
+ 
+        break
+    case "precio5":
+        cantidades.sentadilla ++;    
+        console.log ("sentadilla:" + cantidades.sentadilla );
+       
+        break
+    default:
+        console.log ("no se ha encontrado nada");    
+
+
+    }
+
+
+ }
+ else {
+    console.log("Dinero Insuficiente");
+    console.log(cantidaddedinero);
+ }
+}
+
+
+
+
+document.getElementById("ejerciciosmancuernas").addEventListener("click",() => calculodeprecio(ejerciciosInfo.ejerciciosmancuernas,"precio1"));
+document.getElementById("ejerciciosbicicleta").addEventListener("click",() => calculodeprecio(ejerciciosInfo.ejerciciosbicicleta,"precio2"));
+document.getElementById("ejerciciospresbanca").addEventListener("click",() => calculodeprecio(ejerciciosInfo.ejerciciospresbanca,"precio3"));
+document.getElementById("ejercicioscaminadora").addEventListener("click",() => calculodeprecio(ejerciciosInfo.ejercicioscaminadora,"precio4"));
+document.getElementById("ejerciciossentadilla").addEventListener("click",() => calculodeprecio(ejerciciosInfo.ejerciciossentadilla,"precio5"));
+
+
+window.addEventListener("beforeunload", function(e){
+    postData("Guardar infromacion", {
+        cantidades:cantidades
+      });    
+ });
+
+
 
 function initWheel(){
   var $wheel = $('.roulette-wrapper .wheel'),
@@ -265,3 +384,4 @@ document.querySelector(".aceptar").addEventListener("click", ()=>{
 
     });
 })
+
