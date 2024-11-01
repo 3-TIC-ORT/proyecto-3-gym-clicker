@@ -204,6 +204,14 @@ for (let i in ejerciciosInfo){
         cantidaddedinero -= ejerciciosInfo[i].costo;
     })
 }
+let usuario = document.querySelector(".userName").value;
+let contra = document.querySelector(".password").value;
+
+document.querySelector(".aceptar").addEventListener("click", ()=>{
+    postData("enviarUsuario", {contra: contra, usuario: usuario}, ()=>{
+
+    });
+})
 // Backend
 
 function toggleVisibility(triggerSelector, targetSelector) {
