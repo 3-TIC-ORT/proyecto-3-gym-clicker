@@ -27,8 +27,7 @@ var cantidades = {
 }
 
 
-
-
+let calorias = 0;
 let cantidaddedinero = 0;
 let contadordecalorias = Number(document.getElementById("contadorDeCalorias").innerText);
 let cantidaddemusculo = 0;
@@ -112,14 +111,12 @@ function calculodeprecio (ejerciciosInfo,idejercicio){
     if (cantidaddedinero >= ejerciciosInfo.costo){
     console.log(cantidaddedinero);
     cantidaddedinero = cantidaddedinero - ejerciciosInfo.costo;
-    ejerciciosInfo.costo = ejerciciosInfo.costo*1.15;
+    ejerciciosInfo.costo = ejerciciosInfo.costo*1.5;
     document.getElementById("titulodinero").innerHTML = cantidaddedinero;
     console.log(ejerciciosInfo.costo);
     setInterval(() => {  contadordemusculo = contadordemusculo+ ejerciciosInfo.produccion;
     document.getElementById("contadorDeMusculo").innerHTML = contadordemusculo;
     console.log("hola");
-
-
     }, 10000);
 
 
@@ -170,7 +167,11 @@ function calculodeprecio (ejerciciosInfo,idejercicio){
 }
 
 
+function estructuras() {
+    
 
+
+}
 
 document.getElementById("ejerciciosmancuernas").addEventListener("click",() => calculodeprecio(ejerciciosInfo.ejerciciosmancuernas,"precio1"));
 document.getElementById("ejerciciosbicicleta").addEventListener("click",() => calculodeprecio(ejerciciosInfo.ejerciciosbicicleta,"precio2"));
@@ -179,24 +180,31 @@ document.getElementById("ejercicioscaminadora").addEventListener("click",() => c
 document.getElementById("ejerciciossentadilla").addEventListener("click",() => calculodeprecio(ejerciciosInfo.ejerciciossentadilla,"precio5"));
 
 
-window.addEventListener("beforeunload", function(e){
-    postData("Guardar infromacion", {
-        cantidades:cantidades
-      });    
- });
-// Backend
-// Carga de datos desde el almacenamiento local
-function loadGameData() {
-    let calorias = 0;
-    cantidaddedinero = Number(localStorage.getItem("cantidaddedinero")) || 0;
-    let contadorCalorias = document.getElementById("contadorDeCalorias");
-    contadorCalorias.innerText = calorias;
+function GuardadoAutomatico (){
+    setInterval(() => {  
+        postData("cantidades", cantidades);
+        console.log(cantidades.mancuernas)
+    }, 20000)
 }
+GuardadoAutomatico()
 
+const spanMancuernas = document.getElementById("cantidad")
 
+function actualizarDatos (){fetchData("datos",(data)=>{
+    console.log(data)
+    cantidades.mancuernas = data[0].mancuernas
+    spanMancuernas.textContent = cantidades.mancuernas
+    console.log(cantidades)
+})}
+document.addEventListener("DOMContentLoaded",actualizarDatos)
 
-
-
+for (let i in ejerciciosInfo){
+    document.getElementById(i).addEventListener("click",()=>{
+        cantidaddemusculo += ejerciciosInfo[i].produccion;
+        cantidaddedinero -= ejerciciosInfo[i].costo;
+    })
+}
+// Backend
 
 function toggleVisibility(triggerSelector, targetSelector) {
     const triggerElement = document.querySelector(triggerSelector);
