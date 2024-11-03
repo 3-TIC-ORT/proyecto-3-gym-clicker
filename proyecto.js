@@ -1,9 +1,9 @@
 var ejerciciosInfo = {
-    'ejerciciosmancuernas': { costo: 5, produccion: 1 },
-    'ejerciciosbicicleta': { costo: 50, produccion: 10 },
-    'ejerciciospresbanca': { costo: 500, produccion: 100 },
-    'ejercicioscaminadora': { costo: 5000, produccion: 1000 },
-    'ejerciciossentadilla': { costo: 50000, produccion: 10000 }
+    'ejerciciosmancuernas': { costo: 5, produccion: 1, cantidad:0 },
+    'ejerciciosbicicleta': { costo: 50, produccion: 10, cantidad:0 },
+    'ejerciciospresbanca': { costo: 500, produccion: 100, cantidad:0 },
+    'ejercicioscaminadora': { costo: 5000, produccion: 1000, cantidad:0 },
+    'ejerciciossentadilla': { costo: 50000, produccion: 10000, cantidad:0 }
 };
 
 
@@ -16,15 +16,7 @@ var comidasInfo = {
 };
 
 
-var cantidades = {
-    "mancuernas":0,
-    "bicicleta":0,
-    "pressbanca":0,
-    "caminadora":0,
-    "sentadilla":0,
 
-
-}
 
 
 let calorias = 0;
@@ -33,6 +25,12 @@ let contadordecalorias = Number(document.getElementById("contadorDeCalorias").in
 let cantidaddemusculo = 0;
 let contadordemusculo= Number(document.getElementById("contadorDeMusculo").innerText);
 cantidaddedinero=Number(document.getElementById("titulodinero").innerText);
+
+actualizacionDeIntervalos (ejerciciosInfo.ejerciciosmancuernas,"precio1");
+actualizacionDeIntervalos (ejerciciosInfo.ejerciciosbicicleta,"precio2");
+actualizacionDeIntervalos (ejerciciosInfo.ejerciciospresbanca,"precio3");
+actualizacionDeIntervalos (ejerciciosInfo.ejercicioscaminadora,"precio4");
+actualizacionDeIntervalos (ejerciciosInfo.ejerciciossentadilla,"precio5");
 
 
 function click() {
@@ -44,6 +42,8 @@ document.getElementById("circulo").addEventListener("click", click);
 
 
 function toggleMenu() {
+   initWheel()
+
     var dropdown = document.getElementById("myDropdown");
 
 
@@ -103,7 +103,19 @@ document.getElementById("input1").addEventListener("input", () => {
     }
 });
 
+function actualizacionDeIntervalos (ejercicios, precios){
+    var numero = 0;
 
+    while (numero != ejercicios.cantidad) {
+        setInterval(() => {  contadordemusculo = contadordemusculo+ ejercicios.produccion;
+            document.getElementById("contadorDeMusculo").innerHTML = contadordemusculo;
+            console.log("hola");
+            }, 10000);
+            numero ++;
+    }
+    document.getElementById(precios).innerHTML = ejercicios.costo;
+   
+}
 
 
 function calculodeprecio (ejerciciosInfo,idejercicio){
@@ -112,6 +124,7 @@ function calculodeprecio (ejerciciosInfo,idejercicio){
     console.log(cantidaddedinero);
     cantidaddedinero = cantidaddedinero - ejerciciosInfo.costo;
     ejerciciosInfo.costo = ejerciciosInfo.costo*1.5;
+    cantidaddedinero = Math.floor(cantidaddedinero);
     document.getElementById("titulodinero").innerHTML = cantidaddedinero;
     console.log(ejerciciosInfo.costo);
     setInterval(() => {  contadordemusculo = contadordemusculo+ ejerciciosInfo.produccion;
@@ -120,7 +133,7 @@ function calculodeprecio (ejerciciosInfo,idejercicio){
     }, 10000);
 
 
-    document.getElementById(idejercicio).innerHTML = Math.ceil(ejerciciosInfo.costo);
+    document.getElementById(idejercicio).innerHTML = Math.floor(ejerciciosInfo.costo);
 
 
     switch (idejercicio){
@@ -198,13 +211,15 @@ function actualizarDatos (){fetchData("datos",(data)=>{
 })}
 document.addEventListener("DOMContentLoaded",actualizarDatos)
 
-for (let i in ejerciciosInfo){
-    document.getElementById(i).addEventListener("click",()=>{
-        cantidaddemusculo += ejerciciosInfo[i].produccion;
-        cantidaddedinero -= ejerciciosInfo[i].costo;
-    })
-}
+// for (let i in ejerciciosInfo){
+//     document.getElementById(i).addEventListener("click",()=>{
+//         cantidaddemusculo += ejerciciosInfo[i].produccion;
+//         cantidaddedinero -= ejerciciosInfo[i].costo;
+//     })
+// }
+
 // Backend
+
 
 function toggleVisibility(triggerSelector, targetSelector) {
     const triggerElement = document.querySelector(triggerSelector);
@@ -455,6 +470,8 @@ let skins = 1;
 
     }
 
+
+
     function initWheel(){
         var $wheel = $('.roulette-wrapper .wheel'),
             row = "";
@@ -483,43 +500,47 @@ let skins = 1;
       }
       
       
-      function spinWheel(roll){
-        var $wheel = $('.roulette-wrapper .wheel'),
-            order = [0, 11, 5, 10, 6, 9, 7, 8, 1, 14, 2, 13, 3, 12, 4],
-            position = order.indexOf(roll);
-                 
-        var rows = 12,
-            card = 75 + 3 * 2,
-            landingPosition = (rows * 15 * card) + (position * card);
-         
-        var randomize = Math.floor(Math.random() * 75) - (75/2);
-         
-        landingPosition = landingPosition + randomize;
-         
-        var object = {
-          x: Math.floor(Math.random() * 50) / 100,
-          y: Math.floor(Math.random() * 20) / 100
-        };
-       
-        $wheel.css({
-          'transition-timing-function':'cubic-bezier(0,'+ object.x +','+ object.y + ',1)',
-          'transition-duration':'6s',
-          'transform':'translate3d(-'+landingPosition+'px, 0px, 0px)'
-        });
-       
-        setTimeout(function(){
-          $wheel.css({
-            'transition-timing-function':'',
-            'transition-duration':'',
-          });
-         
-          var resetTo = -(position * card + randomize);
-          $wheel.css('transform', 'translate3d('+resetTo+'px, 0px, 0px)');
-        }, 6 * 1000);
-      }
-      
+      document.getElementById("Rulet").addEventListener('click', () => {
+      console.log("Ruleta")
+      let roll = Math.floor(Math.random() * 15)
+        console.log(roll)
+            var $wheel = $('.roulette-wrapper .wheel'),
+                order = [0, 11, 5, 10, 6, 9, 7, 8, 1, 14, 2, 13, 3, 12, 4],
+                position = order.indexOf(roll);
+                     
+            var rows = 12,
+                card = 75 + 3 * 2,
+                landingPosition = (rows * 15 * card) + (position * card);
+             
+            var randomize = Math.floor(Math.random() * 75) - (75/2);
+             
+            landingPosition = landingPosition + randomize;
+             
+            var object = {
+              x: Math.floor(Math.random() * 50) / 100,
+              y: Math.floor(Math.random() * 20) / 100
+            };
+           
+            $wheel.css({
+              'transition-timing-function':'cubic-bezier(0,'+ object.x +','+ object.y + ',1)',
+              'transition-duration':'6s',
+              'transform':'translate3d(-'+landingPosition+'px, 0px, 0px)'
+            });
+           
+            setTimeout(function(){
+              $wheel.css({
+                'transition-timing-function':'',
+                'transition-duration':'',
+              });
+             
+              var resetTo = -(position * card + randomize);
+              $wheel.css('transform', 'translate3d('+resetTo+'px, 0px, 0px)');
+            }, 6 * 1000);
+          
+        
+      });
 
-
+   
 
 
    
