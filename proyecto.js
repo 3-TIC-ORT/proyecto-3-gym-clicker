@@ -15,7 +15,25 @@ var comidasInfo = {
     'farmacity': { costo: 500, potenciador: 1.50, duracion: 5000 }
 };
 
+var AllSkins = {
 
+    1: {valor:1, desbloqueado:false},
+    2: {valor:2, desbloqueado:true},
+    3: {valor:3, desbloqueado:false},
+    4: {valor:4, desbloqueado:false},
+    5: {valor:5, desbloqueado:false},
+    6: {valor:6, desbloqueado:false},
+    7: {valor:7, desbloqueado:false},
+    "Skin8": {valor:8, desbloqueado:false},
+    "Skin9": {valor:9, desbloqueado:false},
+    "Skin10": {valor:10, desbloqueado:false},
+    "Skin11": {valor:11, desbloqueado:false},
+    "Skin12": {valor:12, desbloqueado:false},
+    "Skin13": {valor:13, desbloqueado:false},
+    "Skin14": {valor:14, desbloqueado:false},
+
+
+}
 
 
 
@@ -25,6 +43,8 @@ let contadordecalorias = Number(document.getElementById("contadorDeCalorias").in
 let cantidaddemusculo = 0;
 let contadordemusculo= Number(document.getElementById("contadorDeMusculo").innerText);
 cantidaddedinero=Number(document.getElementById("titulodinero").innerText);
+
+let contadordedinero = document.getElementById("titulodinero").innerText;
 
 actualizacionDeIntervalos (ejerciciosInfo.ejerciciosmancuernas,"precio1");
 actualizacionDeIntervalos (ejerciciosInfo.ejerciciosbicicleta,"precio2");
@@ -211,12 +231,6 @@ function actualizarDatos (){fetchData("datos",(data)=>{
 })}
 document.addEventListener("DOMContentLoaded",actualizarDatos)
 
-// for (let i in ejerciciosInfo){
-//     document.getElementById(i).addEventListener("click",()=>{
-//         cantidaddemusculo += ejerciciosInfo[i].produccion;
-//         cantidaddedinero -= ejerciciosInfo[i].costo;
-//     })
-// }
 
 // Backend
 
@@ -279,16 +293,21 @@ let skins = 1;
     let left = document.getElementById("left");
    
 
+    var Mostrador = document.getElementById("Mostrador");
+    var SkinDeMostrador = 1
 
     right.addEventListener('click', () => {
         skins = skins+1;
         console.log(skins);
+        SkinDeMostrador = SkinDeMostrador + 1;
+        console.log(SkinDeMostrador);
+
+
+
         if (skins >= 4){
             right.disabled = true;
-
-
-
-
+              
+   
          }
 
 
@@ -298,6 +317,42 @@ let skins = 1;
 
          }
 
+         switch (SkinDeMostrador){
+            case 1:
+            
+            Mostrador.className = "skindefaultMostrador";  
+
+
+
+            break;
+
+            case 2:
+            
+            Mostrador.className = "circulo2Mostrador";  
+
+
+
+            break;
+
+            case 3:
+            
+            Mostrador.className = "circulo3Mostrador";  
+
+
+
+            break;
+
+            case 4:
+            
+            Mostrador.className = "circulo4Mostrador";  
+
+
+
+            break;
+
+
+         }
+       
 
     });
 
@@ -305,11 +360,13 @@ let skins = 1;
    
     left.addEventListener('click', () => {
         skins = skins-1;
+        SkinDeMostrador = SkinDeMostrador - 1;
+        console.log(SkinDeMostrador);
         console.log(skins);
          if (skins <= 1){
             left.disabled = true;
 
-
+            
 
 
          }
@@ -321,6 +378,41 @@ let skins = 1;
 
          }
          
+         switch (SkinDeMostrador){
+            case 1:
+            
+            Mostrador.className = "skindefaultMostrador";  
+
+
+
+            break;
+
+            case 2:
+            
+            Mostrador.className = "circulo2Mostrador";  
+
+
+
+            break;
+
+            case 3:
+            
+            Mostrador.className = "circulo3Mostrador";  
+
+
+
+            break;
+
+            case 4:
+            
+            Mostrador.className = "circulo4Mostrador";  
+
+
+
+            break;
+
+
+         }
 
 
 
@@ -332,6 +424,12 @@ let skins = 1;
     botonaplicar.addEventListener('click', () => {
         let skindefault = document.getElementById("circulo");
         console.log(skindefault.className)
+
+        if (AllSkins[skins].desbloqueado == true) { 
+            
+        
+        
+        
         switch (skins){
             case 1:
                 let skin1 = document.getElementById("skindefault");
@@ -390,8 +488,11 @@ let skins = 1;
 
 
              }
+
+         }
            
     });
+
 
 
     let RebornDialog = document.getElementById('RebornDialog');
@@ -458,19 +559,7 @@ let skins = 1;
    
     }
 
-
-    function buff2 (){
-
-
-    }
-
-
-    function buff3 (){
-
-
-    }
-
-
+    var resultadoderuleta = 0;
 
     function initWheel(){
         var $wheel = $('.roulette-wrapper .wheel'),
@@ -504,6 +593,7 @@ let skins = 1;
       console.log("Ruleta")
       let roll = Math.floor(Math.random() * 15)
         console.log(roll)
+        resultadoderuleta = roll;
             var $wheel = $('.roulette-wrapper .wheel'),
                 order = [0, 11, 5, 10, 6, 9, 7, 8, 1, 14, 2, 13, 3, 12, 4],
                 position = order.indexOf(roll);
@@ -537,13 +627,112 @@ let skins = 1;
               $wheel.css('transform', 'translate3d('+resetTo+'px, 0px, 0px)');
             }, 6 * 1000);
           
+            for (let skin in AllSkins) {
+                if (AllSkins[skin].valor == roll) {
+                    AllSkins[skin].desbloqueado = true       
+                 }
+            }
+    
         
       });
 
-   
 
 
-   
+      const barra = document.getElementById('BarContent');
+      const boton = document.getElementById('circulo');
+      let height = 0;
+      const fillSpeed = 10;
+      const drainSpeed = 0.5;
+      
+      
+      boton.addEventListener('click', () => {
+          if (height > 90) {
+
+             contadordecalorias = contadordecalorias + 1;
+
+          }
+
+
+          if (height < 100) {
+              height += fillSpeed;
+
+          }
+          barra.style.height = height + '%';
+      });
+      
+      
+      function drainBar() {
+          if (height > 0) {
+              height -= drainSpeed;
+              height = Math.max(0, height);
+              barra.style.height = height + '%';
+          }
+          requestAnimationFrame(drainBar);
+      }
+      
+      
+      drainBar();
+      
+      const cofre1 = document.getElementById('cofre1');
+      const cofre2 = document.getElementById('cofre2');
+
+      cofre1.addEventListener('click', () => {
+        
+        var jackpot = cantidaddedinero + cantidaddedinero/4;
+        var Perder = cantidaddedinero - cantidaddedinero/4;
+        
+
+        var CalculoCasino = Math.random() 
+        
+        if ( CalculoCasino > 0.5){
+            
+            cantidaddedinero = jackpot;
+            cantidaddedinero =  Math.floor(cantidaddedinero);
+            document.getElementById("titulodinero").innerHTML = cantidaddedinero;
+            console.log(cantidaddedinero);
+        }
+
+        if ( CalculoCasino <= 0.5){
+            cantidaddedinero = Perder;
+            cantidaddedinero =  Math.floor(cantidaddedinero);
+
+            document.getElementById("titulodinero").innerHTML = cantidaddedinero;
+            console.log(cantidaddedinero);
+
+        }
+
+
+    });
+
+    cofre2.addEventListener('click', () => {
+        
+        var jackpot = cantidaddedinero + cantidaddedinero/2;
+        var Perder = cantidaddedinero - cantidaddedinero/2;
+        
+
+        var CalculoCasino = Math.random() 
+        
+        if ( CalculoCasino > 0.5){
+            
+            cantidaddedinero = jackpot;
+            cantidaddedinero =  Math.floor(cantidaddedinero);
+            document.getElementById("titulodinero").innerHTML = cantidaddedinero;
+            console.log(cantidaddedinero);
+        }
+
+        if ( CalculoCasino <= 0.5){
+            cantidaddedinero = Perder;
+            cantidaddedinero =  Math.floor(cantidaddedinero);
+
+            document.getElementById("titulodinero").innerHTML = cantidaddedinero;
+            console.log(cantidaddedinero);
+
+        }
+
+
+    });
+
+    
 
 
 
