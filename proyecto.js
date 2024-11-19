@@ -215,8 +215,8 @@ document.getElementById("ejerciciossentadilla").addEventListener("click",() => c
 
 function GuardadoAutomatico (){
     setInterval(() => {  
-        postData("cantidades", cantidades);
-        console.log(cantidades.mancuernas)
+        postData("cantidades", ejerciciosInfo.ejerciciosmancuernas.cantidad);
+        console.log(ejercicios.ejerciciosmancuernas.cantidad)
     }, 20000)
 }
 GuardadoAutomatico()
@@ -225,7 +225,7 @@ const spanMancuernas = document.getElementById("cantidad")
 
 function actualizarDatos (){fetchData("datos",(data)=>{
     console.log(data)
-    cantidades.mancuernas = data[0].mancuernas
+ ejerciciosInfo.ejerciciosmancuernas.cantidad = data[0].mancuernas
     spanMancuernas.textContent = cantidades.mancuernas
     console.log(cantidades)
 })}
