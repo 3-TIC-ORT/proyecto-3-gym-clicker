@@ -18,29 +18,45 @@ onEvent("contadordecalorias", (data) => {
 
 onEvent("contadordedinero", (data) => {
     let datosjugador = JSON.parse(readFileSync("datos.json", "utf-8"));
-    datosjugador[0].dinero = data; 
+    datosjugador.forEach((objeto) => {
+    if(data.nombre===objeto.nombre && data.contraseña===contraseña){
+        objeto.dineri=data.dinero
+    };
+    });
     writeFileSync("datos.json", JSON.stringify(datosjugador, null, 2));
     return data
 });
 
 onEvent("contadormusculo", (data) => {
     let datosjugador = JSON.parse(readFileSync("datos.json", "utf-8"));
-    datosjugador[0].musculo = data; 
+    datosjugador.forEach((objeto) => {
+        if(data.nombre===objeto.nombre && data.contraseña===contraseña){
+            objeto.musculo=data.musculo
+        };
+        });
     writeFileSync("datos.json", JSON.stringify(datosjugador, null, 2));
     return data
 });
 
-onEvent("logros", (data) => {
-    let datosjugador = JSON.parse(readFileSync("datos.json", "utf-8"));
-    datosjugador[0].logros = data.logros; 
-    writeFileSync("datos.json", JSON.stringify(datosjugador, null, 2));
-    return data
-});
+// onEvent("logros", (data) => {
+//     let datosjugador = JSON.parse(readFileSync("datos.json", "utf-8"));
+//     datosjugador.forEach((objeto) => {
+//         if(data.nombre===objeto.nombre && data.contraseña===contraseña){
+//             objeto.logros=data.logros
+//         };
+//         }); 
+//     writeFileSync("datos.json", JSON.stringify(datosjugador, null, 2));
+//     return data
+// });
 
 onEvent("comidas", (data) => {
     console.log(data);
     let datosjugador = JSON.parse(readFileSync("datos.json", "utf-8"));
-    datosjugador[0].comidas = data.comidas; 
+    datosjugador.forEach((objeto) => {
+        if(data.nombre===objeto.nombre && data.contraseña===contraseña){
+            objeto.comidas=data.comidas
+        };
+        });
     writeFileSync("datos.json", JSON.stringify(datosjugador, null, 2));
     return data
 });
@@ -48,11 +64,15 @@ onEvent("comidas", (data) => {
 onEvent("cantidades", (data) => {
     console.log(data);
     let datosjugador = JSON.parse(readFileSync("datos.json", "utf-8"));
-    datosjugador[0].mancuernas = data.mancuernas; 
-    datosjugador[0].bicicleta = data.bicicleta; 
-    datosjugador[0].pressbanca = data.pressbanca;
-    datosjugador[0].caminadora = data.caminadora; 
-    datosjugador[0].sentadilla = data.sentadilla; 
+    datosjugador.forEach((objeto) => {
+        if(data.nombre===objeto.nombre && data.contraseña===contraseña){
+            objeto.mancuernas=data.mancuernas
+            objeto.bicicleta = data.bicicleta
+            objeto.pressbanca = data.pressbanca
+            objeto.caminadora = data.caminadora
+            objeto.sentadilla = data.sentadilla
+        };
+        });
     writeFileSync("datos.json", JSON.stringify(datosjugador, null, 2));
     return data
 });

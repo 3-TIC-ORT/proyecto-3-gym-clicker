@@ -218,7 +218,7 @@ function GuardadoAutomatico (){
         postData("cantidades", ejerciciosInfo.ejerciciosmancuernas.cantidad);
         console.log(ejercicios.ejerciciosmancuernas.cantidad)
     }, 20000)
-}
+}   
 GuardadoAutomatico()
 
 const spanMancuernas = document.getElementById("cantidad")
