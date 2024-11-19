@@ -706,8 +706,8 @@ let skins = 1;
 
     cofre2.addEventListener('click', () => {
         
-        var jackpot = cantidaddedinero + cantidaddedinero/2;
-        var Perder = cantidaddedinero - cantidaddedinero/2;
+        var jackpot = cantidaddedinero + cantidaddedinero;
+        var Perder = cantidaddedinero - cantidaddedinero;
         
 
         var CalculoCasino = Math.random() 
