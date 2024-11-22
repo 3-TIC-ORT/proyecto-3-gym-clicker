@@ -726,11 +726,15 @@ let skins = 1;
 
             document.getElementById("titulodinero").innerHTML = cantidaddedinero;
             console.log(cantidaddedinero);
-
         }
-
-
     });
+if(document.getElementById("mejorarClick").addEventListener("click")){
+    function click () {
+        contadordecalorias =+
+        console.log(contadordecalorias);
+        document.getElementById("contadorDeCalorias").innerHTML = contadordecalorias;
+    }
+}
 
     
 
