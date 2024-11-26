@@ -4,55 +4,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
     <title>Registro</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.4/socket.io.js"></script>
-    <script src="socket.js"></script> 
+
 </head>
 <body>
-    <h1>Registro</h1>
-    <form id="registerForm">
-        <label for="newUsername">Nombre de usuario:</label>
-        <input type="text" id="newUsername" required><br>
-        <label for="newPassword">Contraseña:</label>
-        <input type="password" id="newPassword" required><br>
-        <button type="submit">Registrarse</button>
-    </form>
+    <div class="register-container">
+        <div class="register-header">
+            <h2>REGISTER</h2>
+            <button class="close-btn">X</button>
+        </div>
+        
+        <form id="registerForm" class="register-form">
+            <div class="input-group">
+                <label for="newUsername">Usuario</label>
+                <div class="input-field">
+                    <i class="user-icon"></i>
+                    <input type="text" id="newUsername" placeholder="Usuario" required>
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="newPassword">Contraseña</label>
+                <div class="input-field">
+                    <i class="lock-icon"></i>
+                    <input type="password" id="newPassword" placeholder="Contraseña" required>
+                </div>
+            </div>
+            <button type="submit" class="register-button">REGISTRARSE</button>
+        </form>
 
-    <p id="registerMessage"></p>
-    <button id="login">Login</button>
+        <p id="registerMessage"></p>
 
+        <!-- Botón para redirigir a la pantalla de registro -->
+        <button id="login" class="login-button">LOG IN</button>
+    </div>
 
     <script>
         const registerForm = document.getElementById('registerForm');
         const registerMessage = document.getElementById('registerMessage');
-        const login = document.getElementById('login');
+        const loginButton = document.getElementById('login');
 
-
+        // Manejar el evento de registro
         registerForm.addEventListener('submit', (event) => {
-            event.preventDefault(); 
+            event.preventDefault();
 
-            const nombre = document.getElementById('newUsername').value;
-            const password = document.getElementById('newPassword').value;
+            const nombre = document.getElementById('newUsername').value.trim();
+            const password = document.getElementById('newPassword').value.trim();
 
-            postData('register', { nombre, password }, (response) => {
-                if (response.success) {
-                    registerMessage.textContent = 'Registro exitoso.';
-                } else {
-                    registerMessage.textContent = `Error: ${response.message}`;
-                }
-            });
+            if (!nombre || !password) {
+                registerMessage.textContent = 'Por favor, completa todos los campos.';
+                return;
+            }
+
+            // Obtener los usuarios existentes del localStorage
+            const usuarios = JSON.parse(localStorage.getItem('users')) || {};
+
+            // Verificar si el usuario ya existe
+            if (usuarios[nombre]) {
+                registerMessage.textContent = 'Este nombre de usuario ya está registrado.';
+                return;
+            }
+
+            // Registrar el nuevo usuario
+            usuarios[nombre] = {
+                password,
+                calorías: 0,
+                dinero: 0,
+                músculo: 0,
+                logros: [],
+                comidas: 0,
+                mancuernas: 0,
+                bicicleta: 0
+            };
+
+            // Guardar los datos actualizados en el localStorage
+            localStorage.setItem('users', JSON.stringify(usuarios));
+
+            registerMessage.textContent = 'Registro exitoso.';
+            registerForm.reset();
         });
-        login.addEventListener('click', () => {
-            window.location.href = 'login.html';  
+
+        // Redireccionar al login
+        loginButton.addEventListener('click', () => {
+            window.location.href = 'login.html';
         });
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
