@@ -1,4 +1,5 @@
 
+
 import fs from 'fs';
 import { startServer, onEvent } from 'soquetic';
 import { readFileSync, writeFileSync } from 'fs';
@@ -6,7 +7,7 @@ import { join } from 'path';
 
 //MARTIN
 onEvent("contadordecalorias", (data) => {
-    let datosjugador = JSON.parse(readFileSync("datos.json", "utf-8")); 
+    let datosjugador = JSON.parse(readFileSync("datos.json", "utf-8"));
     datosjugador.forEach((objeto) => {
     if(data.nombre===objeto.nombre && data.contraseña===contraseña){
         objeto.calorias=data.calorias
@@ -15,6 +16,7 @@ onEvent("contadordecalorias", (data) => {
     writeFileSync("datos.json", JSON.stringify(datosjugador, null, 2));
     return data
 });
+
 
 onEvent("contadordedinero", (data) => {
     let datosjugador = JSON.parse(readFileSync("datos.json", "utf-8"));
@@ -37,17 +39,17 @@ onEvent("contadormusculo", (data) => {
     writeFileSync("datos.json", JSON.stringify(datosjugador, null, 2));
     return data
 });
-
 // onEvent("logros", (data) => {
 //     let datosjugador = JSON.parse(readFileSync("datos.json", "utf-8"));
 //     datosjugador.forEach((objeto) => {
 //         if(data.nombre===objeto.nombre && data.contraseña===contraseña){
 //             objeto.logros=data.logros
 //         };
-//         }); 
+//         });
 //     writeFileSync("datos.json", JSON.stringify(datosjugador, null, 2));
 //     return data
 // });
+
 
 onEvent("comidas", (data) => {
     console.log(data);
@@ -60,6 +62,7 @@ onEvent("comidas", (data) => {
     writeFileSync("datos.json", JSON.stringify(datosjugador, null, 2));
     return data
 });
+
 
 onEvent("cantidades", (data) => {
     console.log(data);
@@ -77,6 +80,7 @@ onEvent("cantidades", (data) => {
     return data
 });
 
+
 onEvent("datos",()=>{
 let datos = JSON.parse(readFileSync("datos.json", "utf-8"));
 datos.forEach((objeto) => {
@@ -84,8 +88,8 @@ datos.forEach((objeto) => {
         return datos
     };
     });
-
 })
+
 
 
 
