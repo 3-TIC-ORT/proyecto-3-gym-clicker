@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "soquetic": "^1.1.1"
+    "soquetic": "^1.2.6"
   },
   "name": "proyecto-3-gym-clicker",
   "version": "1.0.0",
