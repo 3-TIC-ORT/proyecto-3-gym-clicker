@@ -42,33 +42,38 @@
     </div>
 
     <script>
+        async function saveUserToServer(userData) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    console.log('Usuario registrado en el servidor:', userData);
+                    resolve('Registro exitoso');
+                }, 2000); // Simula un retraso de 2 segundos
+            });
+        }
+    
         const registerForm = document.getElementById('registerForm');
         const registerMessage = document.getElementById('registerMessage');
         const loginButton = document.getElementById('login');
-
-        // Manejar el evento de registro
-        registerForm.addEventListener('submit', (event) => {
+    
+        registerForm.addEventListener('submit', async (event) => {
             event.preventDefault();
-
+    
             const nombre = document.getElementById('newUsername').value.trim();
             const password = document.getElementById('newPassword').value.trim();
-
+    
             if (!nombre || !password) {
                 registerMessage.textContent = 'Por favor, completa todos los campos.';
                 return;
             }
-
-            // Obtener los usuarios existentes del localStorage
+    
             const usuarios = JSON.parse(localStorage.getItem('users')) || {};
-
-            // Verificar si el usuario ya existe
+    
             if (usuarios[nombre]) {
                 registerMessage.textContent = 'Este nombre de usuario ya está registrado.';
                 return;
             }
-
-            // Registrar el nuevo usuario
-            usuarios[nombre] = {
+    
+            const newUser = {
                 password,
                 calorías: 0,
                 dinero: 0,
@@ -76,20 +81,28 @@
                 logros: [],
                 comidas: 0,
                 mancuernas: 0,
-                bicicleta: 0
+                bicicleta: 0,
             };
-
-            // Guardar los datos actualizados en el localStorage
-            localStorage.setItem('users', JSON.stringify(usuarios));
-
-            registerMessage.textContent = 'Registro exitoso.';
-            registerForm.reset();
+    
+            try {
+                const serverResponse = await saveUserToServer(newUser);
+                console.log(serverResponse);
+    
+                usuarios[nombre] = newUser;
+                localStorage.setItem('users', JSON.stringify(usuarios));
+    
+                registerMessage.textContent = 'Registro exitoso.';
+                registerForm.reset();
+            } catch (error) {
+                console.error('Error al registrar el usuario:', error);
+                registerMessage.textContent = 'Ocurrió un error. Intenta de nuevo.';
+            }
         });
-
-        // Redireccionar al login
+    
         loginButton.addEventListener('click', () => {
             window.location.href = 'login.html';
         });
     </script>
+    
 </body>
 </html>

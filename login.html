@@ -39,40 +39,55 @@
         <!-- Botón para redirigir a la pantalla de registro -->
         <button id="signupButton" class="login-button">SIGN UP</button>
     </div>
-
     <script>
+        async function authenticateUser(username, password) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    console.log('Usuario autenticado en el servidor:', username);
+                    resolve(true); // Simula autenticación exitosa
+                }, 1500); // Simula un retraso de 1.5 segundos
+            });
+        }
+    
         const loginForm = document.getElementById('loginForm');
         const loginMessage = document.getElementById('loginMessage');
         const signupButton = document.getElementById('signupButton');
-
-        // Manejar el evento de login
-        loginForm.addEventListener('submit', (event) => {
+    
+        loginForm.addEventListener('submit', async (event) => {
             event.preventDefault();
-
+    
             const nombre = document.getElementById('username').value.trim();
             const password = document.getElementById('password').value.trim();
-
+    
             if (!nombre || !password) {
                 loginMessage.textContent = 'Por favor, completa todos los campos.';
                 return;
             }
-
-            // Obtener usuarios del localStorage
-            const usuarios = JSON.parse(localStorage.getItem('users')) || {};
-
-            // Buscar si el usuario existe y la contraseña coincide
-            const usuario = usuarios[nombre];
-
-            if (usuario && usuario.password === password) {
-                loginMessage.textContent = 'Inicio de sesión exitoso.';
-                localStorage.setItem('currentUser', nombre); // Guardar el usuario actual
-                window.location.href = 'proyecto.html'; // Redirigir a otra página
-            } else {
-                loginMessage.textContent = 'Nombre de usuario o contraseña incorrectos.';
+    
+            try {
+                const serverAuth = await authenticateUser(nombre, password);
+    
+                if (!serverAuth) {
+                    loginMessage.textContent = 'Error al autenticar con el servidor.';
+                    return;
+                }
+    
+                const usuarios = JSON.parse(localStorage.getItem('users')) || {};
+                const usuario = usuarios[nombre];
+    
+                if (usuario && usuario.password === password) {
+                    loginMessage.textContent = 'Inicio de sesión exitoso.';
+                    localStorage.setItem('currentUser', nombre);
+                    window.location.href = 'proyecto.html';
+                } else {
+                    loginMessage.textContent = 'Nombre de usuario o contraseña incorrectos.';
+                }
+            } catch (error) {
+                console.error('Error al autenticar el usuario:', error);
+                loginMessage.textContent = 'Ocurrió un error. Intenta de nuevo.';
             }
         });
-
-        // Redirigir al registro
+    
         signupButton.addEventListener('click', () => {
             window.location.href = 'registro.html';
         });
