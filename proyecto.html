@@ -377,6 +377,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.4/socket.io.js"></script>
     <script src="socket.js"></script>
     <script src="proyecto.js"></script>
+    <script>
+        // Obtener el nombre del usuario actual desde localStorage
+        const currentUser = localStorage.getItem('currentUser');
+    
+        // Elemento donde se mostrará el mensaje de bienvenida
+        const welcomeMessage = document.getElementById('welcomeMessage');
+    
+        // Mostrar el mensaje de bienvenida si hay un usuario logueado
+        if (currentUser) {
+            welcomeMessage.textContent = `Bienvenido, ${currentUser}!`;
+        } else {
+            welcomeMessage.textContent = 'No se encontró ningún usuario logueado.';
+        }
+    
+        // Temporizador para ocultar el mensaje después de 5 segundos
+        setTimeout(() => {
+            welcomeMessage.style.display = 'none'; // Oculta el mensaje
+        }, 3000); // 5000 milisegundos = 5 segundos
+    </script>
 </body>
 
 
