@@ -48,33 +48,27 @@ var AllSkins = {
 
 let calorias = 0;
 let cantidaddedinero = 0;
-let contadordecalorias = Number(document.getElementById("contadorDeCalorias").innerText);
-let cantidaddemusculo = 0;
-let contadordemusculo= Number(document.getElementById("contadorDeMusculo").innerText);
-cantidaddedinero=Number(document.getElementById("titulodinero").innerText);
+document.addEventListener("DOMContentLoaded", function() {
+    let contadordecalorias = Number(document.getElementById("contadorDeCalorias").innerText);
+    let cantidaddemusculo = 0;
+    let contadordemusculo = Number(document.getElementById("contadorDeMusculo").innerText);
+    let cantidaddedinero = Number(document.getElementById("titulodinero").innerText);
 
+    let contadordedinero = document.getElementById("titulodinero").innerText;
 
-let contadordedinero = document.getElementById("titulodinero").innerText;
+    actualizacionDeIntervalos(ejerciciosInfo.ejerciciosmancuernas, "precio1");
+    actualizacionDeIntervalos(ejerciciosInfo.ejerciciosbicicleta, "precio2");
+    actualizacionDeIntervalos(ejerciciosInfo.ejerciciospresbanca, "precio3");
+    actualizacionDeIntervalos(ejerciciosInfo.ejercicioscaminadora, "precio4");
+    actualizacionDeIntervalos(ejerciciosInfo.ejerciciossentadilla, "precio5");
 
-
-actualizacionDeIntervalos (ejerciciosInfo.ejerciciosmancuernas,"precio1");
-actualizacionDeIntervalos (ejerciciosInfo.ejerciciosbicicleta,"precio2");
-actualizacionDeIntervalos (ejerciciosInfo.ejerciciospresbanca,"precio3");
-actualizacionDeIntervalos (ejerciciosInfo.ejercicioscaminadora,"precio4");
-actualizacionDeIntervalos (ejerciciosInfo.ejerciciossentadilla,"precio5");
-
-
-
-
-function click() {
-    contadordecalorias += 1;
-    console.log(contadordecalorias);
-    document.getElementById("contadorDeCalorias").innerHTML = contadordecalorias;
-}
-document.getElementById("circulo").addEventListener("click", click);
-
-
-
+    function click() {
+        contadordecalorias += 1;
+        console.log(contadordecalorias);
+        document.getElementById("contadorDeCalorias").innerHTML = contadordecalorias;
+    }
+    document.getElementById("circulo").addEventListener("click", click);
+});
 
 function toggleMenu() {
    initWheel()
