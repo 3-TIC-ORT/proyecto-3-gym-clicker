@@ -321,38 +321,29 @@ function calculodeprecio2 (ejerciciosInfo,idejercicio,cantidadesañadidas){
 
 
 
+document.getElementById("comida1").addEventListener("click", () => calculodeprecio2(comidasInfo.Arroz, "precio11", "cantidad11"));
+document.getElementById("comida2").addEventListener("click", () => calculodeprecio2(comidasInfo.Chukistrukis, "precio12", "cantidad12"));
+document.getElementById("comida3").addEventListener("click", () => calculodeprecio2(comidasInfo.Avena, "precio13", "cantidad13"));
+document.getElementById("comida4").addEventListener("click", () => calculodeprecio2(comidasInfo.Proteinaenpolvo, "precio14", "cantidad14"));
+document.getElementById("comida5").addEventListener("click", () => calculodeprecio2(comidasInfo.farmacity, "precio15", "cantidad15"));
 
-
-
-document.getElementById("comida1").addEventListener("click",() => calculodeprecio2(comidasInfo.Arroz,"precio11","cantidad11"));
-document.getElementById("comida2").addEventListener("click",() => calculodeprecio2(comidasInfo.Chukistrukis,"precio12","cantidad12"));
-document.getElementById("comida3").addEventListener("click",() => calculodeprecio2(comidasInfo.Avena,"precio13","cantidad13"));
-document.getElementById("comida4").addEventListener("click",() => calculodeprecio2(comidasInfo.Proteinaenpolvo,"precio14","cantidad14"));
-document.getElementById("comida5").addEventListener("click",() => calculodeprecio2(comidasInfo.farmacity,"precio15","cantidad15"));
-
-
-
-
-function GuardadoAutomatico (){
+function GuardadoAutomatico() {
     setInterval(() => {  
-        postData("cantidades", ejerciciosInfo.ejerciciosmancuernas.cantidad);
-        console.log(ejercicios.ejerciciosmancuernas.cantidad)
-    }, 20000)
+        // Asegúrate de que 'ejerciciosInfo' esté correctamente definido y 'cantidad' sea una propiedad válida
+        console.log(ejerciciosInfo.ejerciciosmancuernas.cantidad);
+    }, 20000);
 }  
-GuardadoAutomatico()
+GuardadoAutomatico();
 
+const spanMancuernas = document.getElementById("cantidad");
 
-const spanMancuernas = document.getElementById("cantidad")
+function actualizarDatos() {
+    // Asegúrate de que la variable 'ejerciciosInfo' esté correctamente definida
+    console.log(ejerciciosInfo.ejerciciosmancuernas.cantidad);
+    spanMancuernas.textContent = ejerciciosInfo.ejerciciosmancuernas.cantidad;
+}
 
-
-function actualizarDatos (){fetchData("datos",(data)=>{
-    console.log(data)
- ejerciciosInfo.ejerciciosmancuernas.cantidad = data[0].mancuernas
-    spanMancuernas.textContent = cantidades.mancuernas
-    console.log(cantidades)
-})}
-document.addEventListener("DOMContentLoaded",actualizarDatos)
-
+document.addEventListener("DOMContentLoaded", actualizarDatos);
 
 
 

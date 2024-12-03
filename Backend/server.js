@@ -1,68 +1,65 @@
-
 import fs from 'fs';
 import { startServer, onEvent } from 'soquetic';
-import { readFileSync, writeFileSync } from 'fs';
-import { join } from 'path';
 
-//MARTIN
-onEvent("contadordecalorias", (data) => {
-    let datosjugador = JSON.parse(readFileSync("datos.json", "utf-8")); 
+// Función para leer y escribir datos JSON
+const leerDatos = () => JSON.parse(fs.readFileSync("datos.json", "utf-8"));
+const guardarDatos = (datos) => fs.writeFileSync("datos.json", JSON.stringify(datos, null, 2));
+
+// Validar que los datos enviados al servidor sean correctos
+const validarDatos = (data, camposRequeridos) => {
+    if (typeof data !== "object" || data === null) return false; // Verifica que data sea un objeto válido
+    return camposRequeridos.every((campo) => campo in data);
+};
+
+// Actualiza propiedades específicas de un usuario
+const actualizarPropiedad = (data, propiedad, valor) => {
+    let datosjugador = leerDatos();
     datosjugador.forEach((objeto) => {
-    if(data.nombre===objeto.nombre && data.contraseña===contraseña){
-        objeto.calorias=data.calorias
-    };
+        if (data.nombre === objeto.nombre && data.contraseña === objeto.contraseña) {
+            objeto[propiedad] = valor;
+        }
     });
-    writeFileSync("datos.json", JSON.stringify(datosjugador, null, 2));
-    return data
+    guardarDatos(datosjugador);
+};
+
+// Eventos
+onEvent("contadordecalorias", (data) => {
+    if (!validarDatos(data, ["nombre", "contraseña", "calorias"])) {
+        return { success: false, message: "Datos incompletos o mal formateados." };
+    }
+    actualizarPropiedad(data, "calorias", data.calorias);
+    return { success: true };
 });
 
 onEvent("contadordedinero", (data) => {
-    let datosjugador = JSON.parse(readFileSync("datos.json", "utf-8"));
-    datosjugador.forEach((objeto) => {
-    if(data.nombre===objeto.nombre && data.contraseña===contraseña){
-        objeto.dineri=data.dinero
-    };
-    });
-    writeFileSync("datos.json", JSON.stringify(datosjugador, null, 2));
-    return data
+    if (!validarDatos(data, ["nombre", "contraseña", "dinero"])) {
+        return { success: false, message: "Datos incompletos o mal formateados." };
+    }
+    actualizarPropiedad(data, "dinero", data.dinero);
+    return { success: true };
 });
 
 onEvent("contadormusculo", (data) => {
-    let datosjugador = JSON.parse(readFileSync("datos.json", "utf-8"));
-    datosjugador.forEach((objeto) => {
-        if(data.nombre===objeto.nombre && data.contraseña===contraseña){
-            objeto.musculo=data.musculo
-        };
-        });
-    writeFileSync("datos.json", JSON.stringify(datosjugador, null, 2));
-    return data
+    if (!validarDatos(data, ["nombre", "contraseña", "musculo"])) {
+        return { success: false, message: "Datos incompletos o mal formateados." };
+    }
+    actualizarPropiedad(data, "musculo", data.musculo);
+    return { success: true };
 });
 
-// onEvent("logros", (data) => {
-//     let datosjugador = JSON.parse(readFileSync("datos.json", "utf-8"));
-//     datosjugador.forEach((objeto) => {
-//         if(data.nombre===objeto.nombre && data.contraseña===contraseña){
-//             objeto.logros=data.logros
-//         };
-//         }); 
-//     writeFileSync("datos.json", JSON.stringify(datosjugador, null, 2));
-//     return data
-// });
-
 onEvent("comidas", (data) => {
-    console.log(data);
-    let datosjugador = JSON.parse(readFileSync("datos.json", "utf-8"));
-    datosjugador.forEach((objeto) => {
-        if(data.nombre===objeto.nombre && data.contraseña===contraseña){
-            objeto.comidas=data.comidas
-        };
-        });
-    writeFileSync("datos.json", JSON.stringify(datosjugador, null, 2));
-    return data
+    if (!validarDatos(data, ["nombre", "contraseña", "comidas"])) {
+        return { success: false, message: "Datos incompletos o mal formateados." };
+    }
+    actualizarPropiedad(data, "comidas", data.comidas);
+    return { success: true };
 });
 
 onEvent("cantidades", (data) => {
-    let datosjugador = JSON.parse(readFileSync("datos.json", "utf-8"));
+    if (!validarDatos(data, ["nombre", "contraseña", "mancuernas", "bicicleta", "pressbanca", "caminadora", "sentadilla"])) {
+        return { success: false, message: "Datos incompletos o mal formateados." };
+    }
+    let datosjugador = leerDatos();
     datosjugador.forEach((objeto) => {
         if (data.nombre === objeto.nombre && data.contraseña === objeto.contraseña) {
             objeto.mancuernas = data.mancuernas;
@@ -72,51 +69,52 @@ onEvent("cantidades", (data) => {
             objeto.sentadilla = data.sentadilla;
         }
     });
-    writeFileSync("datos.json", JSON.stringify(datosjugador, null, 2));
-    return data;
+    guardarDatos(datosjugador);
+    return { success: true };
 });
 
-onEvent("datos",()=>{
-let datos = JSON.parse(readFileSync("datos.json", "utf-8"));
-datos.forEach((objeto) => {
-    if(data.nombre===objeto.nombre && data.contraseña===contraseña){
-        return datos
-    };
-    });
+onEvent("datos", (data) => {
+    if (!validarDatos(data, ["nombre", "contraseña"])) {
+        return { success: false, message: "Datos incompletos o mal formateados." };
+    }
 
-})
+    let datos = leerDatos();
+    const usuario = datos.find((objeto) => data.nombre === objeto.nombre && data.contraseña === objeto.contraseña);
 
+    return usuario
+        ? { success: true, datos: usuario }
+        : { success: false, message: "Usuario no encontrado." };
+});
 
-
-let usuarios = JSON.parse(fs.readFileSync('datos.json', 'utf-8'));
-
-
+// Login
 onEvent("login", (data) => {
+    if (!validarDatos(data, ["nombre", "password"])) {
+        return { success: false, message: "Datos incompletos o mal formateados." };
+    }
+
     const { nombre, password } = data;
-    let usuarios = JSON.parse(fs.readFileSync("datos.json", "utf-8"));
+    let usuarios = leerDatos();
     const usuarioExistente = usuarios.some(
         (usuario) => usuario.nombre === nombre && usuario.contraseña === password
     );
 
-    if (usuarioExistente) {
-        return { message: "Inicio de sesión exitoso.", success: true };
-    } else {
-        return {
-            message: "Nombre de usuario o contraseña incorrectos.",
-            success: false,
-        };
-    }
+    return usuarioExistente
+        ? { message: "Inicio de sesión exitoso.", success: true }
+        : { message: "Nombre de usuario o contraseña incorrectos.", success: false };
 });
 
 // Registro
 onEvent("register", (data) => {
+    if (!validarDatos(data, ["nombre", "password"])) {
+        return { success: false, message: "Datos incompletos o mal formateados." };
+    }
+
     const { nombre, password } = data;
-    let usuarios = JSON.parse(fs.readFileSync("datos.json", "utf-8"));
+    let usuarios = leerDatos();
     const usuarioExistente = usuarios.some((usuario) => usuario.nombre === nombre);
 
     if (usuarioExistente) {
-        console.log("El nombre de usuario ya existe.");
-        return { success: false };
+        return { message: "El nombre de usuario ya existe.", success: false };
     } else {
         const nuevoUsuario = {
             nombre,
@@ -130,12 +128,9 @@ onEvent("register", (data) => {
             bicicleta: 0,
         };
         usuarios.push(nuevoUsuario);
-        fs.writeFileSync("datos.json", JSON.stringify(usuarios, null, 2));
-        console.log("Registro exitoso.");
-        return { success: true };
+        guardarDatos(usuarios);
+        return { message: "Registro exitoso.", success: true };
     }
 });
 
-
 startServer();
-
