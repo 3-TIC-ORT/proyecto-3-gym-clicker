@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PROYECTO TIC</title>
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="style.css">
+
 
 </head>
 
 
+
+
 <body>
-    <h1 id="welcomeMessage"></h1>
     <div id="id01" class="modal">
         <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
         <form class="modal-content" action="/action_page.php">
@@ -27,20 +29,23 @@
       </div>
 
 
+
+
     <div id="container" class="container">
+     <div class="Section1">
         <div class="header">
             <div class="dropdown">
-                <button class="dropbtn" onclick="toggleMenu()">Tienda</button>
+                <button class="dropbtn" onclick="toggleMenu()"><h1>TIENDA</h1></button>
                 <div id="myDropdown" class="dropdown-content">
                     <h2>Retirar dinero</h2>
                     <div class="menu">
                         <div id="caja1" class="caja1"><div class="cajanegra"><input type="number" min="1" max="5" class="input1" id="input1"></div></div>
                         <div id="caja2" class="caja2"><div class="cajanegra" id="cajanegra"></div></div>
-                        <div id="caja3" class="caja1"><div class="cajanegra"><input type="text"></div></div>
-                        <div id="caja4" class="caja2"><div class="cajanegra"></div></div>
+                        <div id="caja3" class="caja1"><div class="cajanegra"><input type="number" min="1" max="5" class="input1" id="input2"></div></div>
+                        <div id="caja4" class="caja2"><div class="cajanegra" id="cajanegra2"></div></div>
                     </div>
                     <div>
-                    <h2>Cofre Gratis ponele</h2>
+                    <h2>Ruleta</h2>
                     </div>
                         <div id= "cofreGratis" class="cajagris">
                             <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
@@ -50,112 +55,94 @@
                                 <div class='wheel'></div>
                             </div>
                             <div>
-                                <input id="">
                                     <button id="Rulet">
-                                        Casino
+                                        PUSH
                                     </button>
                                 </div>
                         </div>
 
 
+
+
                     <div>
-                        <h2>Cofre Gratis 2.0 ponele</h2>
+                        <h2>Cofre del 50%</h2>
                         </div>
+
+
+
 
 
 
                         <div class="cajagris">
 
+
                             <div class="Cofre" id="cofre1"></div>
                             <div class="Cofre" id="cofre2"></div>
 
 
+
+
                         </div>
-                    
+                   
                     </div>
                
             </div>
            
         </div>
-       
+
+
+        <div>
+            <h2 id="titulodinero"class="titulodinero">0</h2>
+        </div>
+    </div>
+        <div class="Section2">
 
 
         <div class="botonNuevo" id="BotonReborn">
 
 
-        <h2>Reborn</h2>
+
+
+        <h2>RENACER</h2>
+       
        
        
         </div>
 
 
        
-        <div> <button id="mejorarCLick" class="mejorarCLick"> Mejorar click</button></div>
-
-
-        <div id="shop" class="Shop">
-            <div>
-                <h2 id="titulodinero"class="titulodinero">0</h2>
-                <h2 class="tituloshop">Ejercicios</h2>
-            </div>
-            <div id="ejerciciosmancuernas"class="ejercicios">
-                <div class="w"><h1 id="cantidad">X</h1></div>
-                <div class="w2"></div>
-                <div class="w"><h2>Ejercicios de mancuernas</h2></div>
-                <div class="w2"></div>
-                <div class="w"><h2 id="precio1">5</h2></div>
-            </div>
-            <div id="ejerciciosbicicleta"class="ejercicios">
-                <div class="w"><h1>X</h1></div>
-                <div class="w2"></div>
-                <div class="w"><h2>Ejercicios de bicicleta</h2></div>
-                <div class="w2"></div>
-                <div class="w"><h2 id="precio2">50</h2></div>
-            </div>
-            <div id="ejerciciospresbanca"class="ejercicios">
-                <div class="w"><h1>X</h1></div>
-                <div class="w2"></div>
-                <div class="w"><h2>Ejercicios de presbanca</h2></div>
-                <div class="w2"></div>
-                <div class="w"><h2 id="precio3">500</h2></div>
-            </div>
-            <div id="ejercicioscaminadora"class="ejercicios">
-                <div class="w"><h1>X</h1></div>
-                <div class="w2"></div>
-                <div class="w"><h2>Ejercicios de correr</h2></div>
-                <div class="w2"></div>
-                <div class="w"><h2 id="precio4">5000</h2></div>
-            </div>
-            <div id="ejerciciossentadilla" class="ejercicios">
-                <div class="w"><h1>X</h1></div>
-                <div class="w2"></div>
-                <div class="w"><h2>Ejercicios de sentadilla</h2></div>
-                <div class="w2"></div>
-                <div class="w" ><h2 id="precio5">50000</h2></div>
-            </div>  
-            <div class="abajo">⬇</div>
-
-
-        </div>
-
-
-        <div id="Fatguy" class="Fatguy">
+           <div id="Fatguy" class="Fatguy">
             <div>
                 <h2 id= "contadorDeCalorias" class="contadordecalorias">0</h2>
-                <h2 id="contadorDeMusculo" class="contadordecalorias">0</h2>
+                <h2 id="contadorDeMusculo" class="contadordemusculos">0</h2>
             </div>
             <div class="Fat">
+
+
 
 
                
 
 
+
+
                 <dialog id="miDialogo">
-                    <p>Este es un cuadro de diálogo.</p>
-                    <button id="cerrarDialogo">Cerrar</button>
+                 <div class="Fondogris">  
+                    <h1 class="tituloskins" id="S">SKINS</h1>
+                     <h3 class="tituloskins">SELECIONA LAS FLECHAS SEGUN LA SKIN QUE QUIERAS EQUIPARTE</h3>  
+
+                  <div class="contenedordecontroles"> 
+                    <button id="cerrarDialogo" class="botonrojo"><h2>CERRAR</h2></button>
                     <button class="controlright" id="right"></button>
-                    <button class="controlleft" id="left"></button>
                     <div class="skindefaultMostrador" id="Mostrador"></div>
+
+                    <button class="controlleft" id="left"></button>
+                    <button id="botonaplicar" class="botonrojo"><h2>APLICAR</h2></button>
+                </div> 
+
+                </div> 
+
+
 
 
 
@@ -165,20 +152,36 @@
                     <div class="circulo2" id="skin2"></div>
                     <div class="circulo3" id="skin3"></div>
                     <div class="circulo4" id="skin4"></div>
+                    <div class="circulo5" id="skin5"></div>
+                    <div class="circulo6" id="skin6"></div>
+                    <div class="circulo7" id="skin7"></div>
+                    <div class="circulo8" id="skin8"></div>
+                    <div class="circulo9" id="skin9"></div>
+                    <div class="circulo10" id="skin10"></div>
+                    <div class="circulo11" id="skin11"></div>
+                    <div class="circulo12" id="skin12"></div>
+                    <div class="circulo13" id="skin13"></div>
+                    <div class="circulo14" id="skin14"></div>
 
 
                     </div>
 
 
-                    <button id="botonaplicar"></button>
+
+
+
+
 
 
                 </dialog>
                 <dialog id="RebornDialog">
                     <div class="Options">
-                        <div class="RebornChose" onclick="buff1()">Opcion 1</div>
-                        <div class="RebornChose" id="Option2">Opcion 2</div>
-                        <div class="RebornChose">Opcion 3</div>
+                        <div class="RebornChose" >
+                            <h1>RENACER</h1>
+                            <h2>“Al renacer todo tu progreso será reiniciado y recibiras un 10% de bonificación a cambio de toda tus ganananzcias actuales”</h2>
+                            <div class="RebornChose2" id="Option2"><h2>6$</h2></div>
+                            <button class="Pedilo" onclick="buff1()"><h2>RENACER</h2></button>
+                        </div>
                     </div>  
                 </dialog>
                    
@@ -186,14 +189,22 @@
                 <div class="Conteiner">
 
 
+
+
                     <div class="BarConteiner">
-    
-    
+   
+   
                         <div class="BarContent" id="BarContent"></div>
                     </div>
-    
+   
                 <div id="circulo" class="circulo"></div>
-                <div id="trigger-div"><button id="abrirDialogo">Boton de Skin</button></div>
+               
+                <div id="trigger-div"><button id="abrirDialogo"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-backpack-fill" viewBox="0 0 16 16">
+                    <path d="M5 13v-3h4v.5a.5.5 0 0 0 1 0V10h1v3z"/>
+                    <path d="M6 2v.341C3.67 3.165 2 5.388 2 8v5.5A2.5 2.5 0 0 0 4.5 16h7a2.5 2.5 0 0 0 2.5-2.5V8a6 6 0 0 0-4-5.659V2a2 2 0 1 0-4 0m2-1a1 1 0 0 1 1 1v.083a6 6 0 0 0-2 0V2a1 1 0 0 1 1-1m0 3a4 4 0 0 1 3.96 3.43.5.5 0 1 1-.99.14 3 3 0 0 0-5.94 0 .5.5 0 1 1-.99-.14A4 4 0 0 1 8 4M4.5 9h7a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5"/>
+                  </svg></button></div>
+
+
 
 
                
@@ -201,90 +212,177 @@
         </div>
 
 
-       
-
-        <div>
-
-            
 
 
-        </div>
+   
 
 
            
         </div>
 
 
-        <div> <div id="Food" class="Food">
-            <div>
-                <h2 id="titulofood" class="titulofood">Food</h2>
-                <h2 id="borrar" class="borrar">h</h2>
+    </div>
 
 
+    <div class="Section3">
+
+
+       
+
+
+
+
+        <div id="shop" class="Shop">
+            <div class="tituloshop"> <h2 >EJERCICIOS</h2></div>
+           
+
+
+        <div class="ejerciciosgeneral">
+            <div id="ejerciciosmancuernas"class="ejercicios">
+                <div class="Cantidades"><h4 id="cantidad1">0</h4></div>
+                <div class="Estructuras"><h4>Ejercicios de mancuernas</h4></div>
+                <div class="Precios"><h4 id="precio1">5</h4></div>
             </div>
-            <div id="mama" class="mama">
-
-
-
-
-
-
-
-
-
-
-                <div id=Arros class="Comida">
-                    <p>Arros:Cuesta 500 y genera un potenciador de un 10% que dura 5 segundos</p>
-                </div>
-                <div id=Chukistrukis class="Comida">
-                    <p>Chukis trukis:Cuesta 500 y genera un potenciador de un 20% que dura 5 segundos</p>
-                </div>
-                <div id=Avena class="Comida">
-                    <p>Avena:Cuesta 500 y genera un potenciador de un 30% que dura 5 segundos</p>
-                </div>
-                <div id="Proteinaenpolvo" class="Comida">
-                    <p>Proteina en polvo:Cuesta 500 y genera un potenciador de un 40% que dura 5 segundos</p>
-                </div>
-                <div id="Farmecutico locales" class="Comida">
-                    <p>Farmecuticos locales:Cuesta 500 y genera un potenciador de un 50% que dura 5 segundos</p>
-                </div>
-                <div class="abajo2">⬇</div>
+            <div id="ejerciciosbicicleta"class="ejercicios">
+                <div class="Cantidades"><h4 id="cantidad2">0</h4></div>
+                <div class="Estructuras"><h4>Ejercicios de bicicleta</h4></div>
+                <div class="Precios"><h4 id="precio2">50</h4></div>
             </div>
+            <div id="ejerciciospresbanca"class="ejercicios">
+                <div class="Cantidades"><h4 id="cantidad3">0</h4></div>
+                <div class="Estructuras"><h4>Ejercicios de presbanca</h4></div>
+                <div class="Precios"><h4 id="precio3">500</h4></div>
+            </div>
+            <div id="ejercicioscaminadora"class="ejercicios">
+                <div class="Cantidades"><h4 id="cantidad4">0</h4></div>
+                <div class="Estructuras"><h4>Ejercicios de correr</h4></div>
+                <div class="Precios"><h4 id="precio4">5000</h4></div>
+            </div>
+            <div id="ejerciciossentadilla" class="ejercicios">
+                <div class="Cantidades"><h4 id="cantidad5">0</h4></div>
+                <div class="Estructuras"><h4>Ejercicios de sentadilla</h4></div>
+                <div class="Precios" ><h4 id="precio5">50000</h4></div>    
+            </div>  
+
+
+            <div id="ejerciciossentadilla" class="ejercicios">
+                <div class="Cantidades"><h4 id="cantidad5">0</h4></div>
+                <div class="Estructuras"><h4>Ejercicios de sentadilla</h4></div>
+                <div class="Precios" ><h4 id="precio5">50000</h4></div>    
+            </div>  
+
+
+            <div id="ejerciciossentadilla" class="ejercicios">
+                <div class="Cantidades"><h4 id="cantidad5">0</h4></div>
+                <div class="Estructuras"><h4>Ejercicios de sentadilla</h4></div>
+                <div class="Precios" ><h4 id="precio5">50000</h4></div>    
+            </div>  
+
+
+            <div id="ejerciciossentadilla" class="ejercicios">
+                <div class="Cantidades"><h4 id="cantidad5">0</h4></div>
+                <div class="Estructuras"><h4>Ejercicios de sentadilla</h4></div>
+                <div class="Precios" ><h4 id="precio5">50000</h4></div>    
+            </div>  
+           </div>
+
+
+            <div> <div id="Food" class="Food">
+                <div  class="titulofood">
+                    <h2 id="titulofood">COMIDA</h2>    
+   
+                </div>
+   
+               
+                <div class="ejerciciosgeneral">
+                    <div id="ejerciciosmancuernas"class="ejercicios">
+                        <div class="Cantidades"><h4 id="cantidad11">0</h4></div>
+                        <div class="Estructuras"><h4 id="comida1">Arroz</h4></div>
+                        <div class="Precios"><h4 id="precio11">5</h4></div>
+                    </div>
+                    <div id="ejerciciosbicicleta"class="ejercicios">
+                        <div class="Cantidades"><h4 id="cantidad12">0</h4></div>
+                        <div class="Estructuras"><h4 id="comida2">Chukistrukis</h4></div>
+                        <div class="Precios"><h4 id="precio12">50</h4></div>
+                    </div>
+                    <div id="ejerciciospresbanca"class="ejercicios">
+                        <div class="Cantidades"><h4 id="cantidad13">0</h4></div>
+                        <div class="Estructuras"><h4 id="comida3">Avena</h4></div>
+                        <div class="Precios"><h4 id="precio13">500</h4></div>
+                    </div>
+                    <div id="ejercicioscaminadora"class="ejercicios">
+                        <div class="Cantidades"><h4 id="cantidad14">0</h4></div>
+                        <div class="Estructuras"><h4 id="comida4">Proteina en polvo</h4></div>
+                        <div class="Precios"><h4 id="precio14">5000</h4></div>
+                    </div>
+                    <div id="ejerciciossentadilla" class="ejercicios">
+                        <div class="Cantidades"><h4 id="cantidad15">0</h4></div>
+                        <div class="Estructuras"><h4 id="comida5">Farmacity</h4></div>
+                        <div class="Precios" ><h4 id="precio15">50000</h4></div>
+                    </div>  
+
+
+                    <div id="ejerciciosmancuernas"class="ejercicios">
+                        <div class="Cantidades"><h4 id="cantidad11">0</h4></div>
+                        <div class="Estructuras"><h4 id="comida6">Pollo</h4></div>
+                        <div class="Precios"><h4 id="precio11">5</h4></div>
+                    </div>
+                    <div id="ejerciciosbicicleta"class="ejercicios">
+                        <div class="Cantidades"><h4 id="cantidad12">0</h4></div>
+                        <div class="Estructuras"><h4 id="comida7">Carne</h4></div>
+                        <div class="Precios"><h4 id="precio12">50</h4></div>
+                    </div>
+                    <div id="ejerciciospresbanca"class="ejercicios">
+                        <div class="Cantidades"><h4 id="cantidad13">0</h4></div>
+                        <div class="Estructuras"><h4 id="comida8">Huevos Duros</h4></div>
+                        <div class="Precios"><h4 id="precio13">500</h4></div>
+                    </div>
+                    <div id="ejercicioscaminadora"class="ejercicios">
+                        <div class="Cantidades"><h4 id="cantidad14">0</h4></div>
+                        <div class="Estructuras"><h4 id="comida9">Lentejas</h4></div>
+                        <div class="Precios"><h4 id="precio14">5000</h4></div>
+                    </div>
+                    <div id="ejerciciossentadilla" class="ejercicios">
+                        <div class="Cantidades"><h4 id="cantidad15">0</h4></div>
+                        <div class="Estructuras"><h4 id="comida10">Hamburuesa</h4></div>
+                        <div class="Precios" ><h4 id="precio15">50000</h4></div>
+
+
+                   
+                   
+                   </div>
+       
+   
+   
+            </div>
+    </div>
 
 
         </div>
-</div>
+
+
+
+
+     
+
+
+       
+
+
 
 
     </div>
 
-    
-    
+
+   
+   
 </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.4/socket.io.js"></script>
     <script src="socket.js"></script>
     <script src="proyecto.js"></script>
-    <script>
-        // Obtener el nombre del usuario actual desde localStorage
-        const currentUser = localStorage.getItem('currentUser');
-    
-        // Elemento donde se mostrará el mensaje de bienvenida
-        const welcomeMessage = document.getElementById('welcomeMessage');
-    
-        // Mostrar el mensaje de bienvenida si hay un usuario logueado
-        if (currentUser) {
-            welcomeMessage.textContent = `Bienvenido, ${currentUser}!`;
-        } else {
-            welcomeMessage.textContent = 'No se encontró ningún usuario logueado.';
-        }
-    
-        // Temporizador para ocultar el mensaje después de 5 segundos
-        setTimeout(() => {
-            welcomeMessage.style.display = 'none'; // Oculta el mensaje
-        }, 3000); // 5000 milisegundos = 5 segundos
-    </script>
-    
 </body>
+
+
 
 
 </html>
