@@ -154,13 +154,3 @@ h1 {
     background-color: #c0c0c0;
 }
 
-#loginMessage {
-    margin-top: 10px;
-    color: red;
-    font-size: 14px;
-}
-#registerMessage {
-    margin-top: 10px;
-    color: red;
-    font-size: 14px;
-}
