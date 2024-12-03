@@ -7,27 +7,66 @@ body {
     background-color: #f4f4f4;
     margin: 0;
     width: 100%;
-    height: 100%;
+    height: 80%;
     user-select: none;
    
 }
 
 
+#abrirDialogo{
+    background-color: transparent;
+    border-color: none;
+    position: relative;
+    top: 250px;
+    right: 60px;
+}
+
+
 .container {
     display: grid;
-    grid-template-columns: 30% 30% 30%;
-    grid-template-rows:  1fr 1fr  ;
-    gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
     width: 100%;
     height: 100%;
+
+
 
 
 }
 
 
+.Section1{
+    background-color: #9250FFBF;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    width: 100%;
+    height: 100%;
+   
+}
+
+
+.Section2{
+    background-color: #C3A0FDBF;
+    display: grid;
+    grid-template-rows: 10%  90%;
+    place-content: center;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+
+.Section3{
+    background-color: #9250FFBF;
+    display: grid;
+    width: 100%;
+    height: 100%;
+}
+
+
 .header{
     grid-column: span 1;
-    background-color: #D9D9D9;
+    background-color: transparent;
     color: black;
     cursor: pointer;
     font-size: 16px;
@@ -38,96 +77,114 @@ body {
     border-radius: 1vh;
 
 
+
+
    
    
 }
-.Shop {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    height: 85vh;
 
 
+.ejerciciosgeneral{
+    width: 400px;
+    height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1px solid #ccc;
+    padding: 10px;
+   
 }
+
+
 .ejercicios{
     display: grid;
-    grid-template-columns: 15% 5% 60% 5% 15%;
-    background-color: #D9D9D9;
+    grid-template-columns: 20% 60% 20%;  
+    column-gap: 6px;
+    margin-top: 6px;
    
-    color: black;
-    cursor: pointer;
-    font-size: 16px;
-    margin: 0;
-    width: 30vw;
-    height: 8vh;
-    align-items: flex-start;
-    justify-items: flex-start;
-    transition: transform 0.3s ease-in-out;
+ 
+}
+
+
+.Precios{
+    border: transparent 5px solid;
+    border-radius: 7px;
+    background-color: #D9D9D9;
+    width: 80%;
+    height: 30px;
+
+
 
 
 }
 
 
-
-
-.ejercicios-hover {
-    transform: scale(1.5);
+.Cantidades{
+    border: transparent 5px solid;
+    border-radius: 7px;
+    background-color: #D9D9D9;
+    width: 80%;
+    height: 30px;
+   
 }
 
 
-#ejerciciosmancuernas{
-    display: grid;
-    grid-template-columns: 15% 5% 60% 5% 15%;
-}
-
-
-.w{
-    margin: auto;
+.Estructuras{
+    border: transparent 5px solid;
+    border-radius: 7px;
+    background-color: #D9D9D9;
     width: 100%;
-    height: 100%;
-    border: black;
+    height: 30px;
 }
 
 
-.w2{
-   background-color: #f4f4f4;
-   width: 100%;
-    height: 100%;
-}
 
 
 .tituloshop{
     display: flex;
     color: black;
-    background-color: #D9D9D9;
-    border: 4px solid;
-    border-color: black;
+    background-color: #FFFFFFA0;
+    margin-top: 10px;
     justify-content: center;
     height: 60px;
-    width: 400px;
+    width: 100%;
 }
 .titulofood{
     display: flex;
     color: black;
-    background-color: #D9D9D9;
-    border: 4px solid;
-    border-color: black;
+    background-color: #FFFFFFA0;
+    margin-top: 10px;
     justify-content: center;
     height: 60px;
-    width: 400px;
+    width: 100%;
 }
 .contadordecalorias{
     display: flex;
     color: black;
-    background-color: #D9D9D9;
-    border: 4px solid;
-    border-color: black;
+    background-color: rgb(229, 202, 152);
+    border: 4px transparent solid;
     justify-content: center;
     border-radius: 25px;
     height: 40px;
     width: 400px;
+    margin: 10px;
 }
+
+
+
+
+.contadordemusculos{
+    display: flex;
+    color: black;
+    background-color: orange;
+    border: 4px transparent solid;
+    justify-content: center;
+    border-radius: 25px;
+    height: 40px;
+    width: 400px;
+    margin: 10px;
+}
+
+
 
 
 .Production{
@@ -141,7 +198,11 @@ body {
     margin: 2px;
 
 
+
+
 }
+
+
 
 
 .contador{
@@ -167,7 +228,12 @@ img{
     right: 0px;
    
     transition: transform 0.3s ease;
+    margin-left: 10px;
 }
+
+
+
+
 
 
 
@@ -183,6 +249,8 @@ img{
     margin: 2px;
     width: 29vw;
     height: 8vh;
+
+
 
 
 }
@@ -205,50 +273,37 @@ img{
 .Fat{
     display: flex;
     flex-direction: row;
+    
 }
-.mama{
-    display: grid;
-    justify-items: end;
-}
+
+
 .borrar{
     color:#f4f4f4;
 }  
-.abajo{
-    display: flex;
-    color: black;
-    background-color: #D9D9D9;
-    border: 4px solid;
-    border-color: black;
-    justify-content: center;
-    width: 30vw;
-    height: 8vh;
-   
-}
-.abajo2{
-    display: flex;
-    color: black;
-    background-color: #D9D9D9;
-    border: 4px solid;
-    border-color: black;
-    justify-content: center;
-    width: 30vw;
-    height: 8vh;
-}
+
+
 .titulodinero{
     display: flex;
     color: black;
-    background-color: #D9D9D9;
+    background-color: greenyellow;
     border: 4px solid;
     border-color: black;
     justify-content: center;
+    align-items: center;
     border-radius: 25px;
-    height: 40px;
-    width: 400px;
+    height: 200px;
+    width: 200px;
     transition: background-color 1s linear;
+    position:relative ;
+    left: 120px;
 }
 
 
+
+
   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+
 
 
 * {
@@ -280,13 +335,17 @@ body {
 }
 
 
+
+
 .sidebar :target {
     height: 500px;
 }
 
 
+
+
 .dropbtn {
-    background-color: #3498DB;
+    background-color: #C12C2C;
     color: white;
     padding: 16px;
     font-size: 16px;
@@ -298,15 +357,19 @@ body {
 }
 
 
+
+
 .dropdown {
     position: relative;
     display: inline-block;
 }
 
 
+
+
 .dropdown-content {
     position: absolute;
-    background-color: red;
+    background-color: #C12C2C;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
@@ -317,12 +380,16 @@ body {
     transition: height 0.5s ease, opacity 0.5s ease;
     visibility: hidden;
     width: 450px;
-    height: 650px;
+    height: 100px;
     justify-content: center;
+    justify-self: center;
     align-items: center;
-    align-items: center;
-    justify-items: center;
+    align-content: center;
+    flex-direction: column;
+   
 }
+
+
 
 
 .show {
@@ -334,12 +401,16 @@ body {
 
 
 
+
+
+
+
 .menu{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     border-radius: 10px;
-    background-color: grey;
+    background-color: white;
     width: 70%;
     height: 50%;
     justify-content: center;
@@ -347,6 +418,8 @@ body {
     align-items: center;
     justify-items: center;
    
+
+
 
 
 }
@@ -361,7 +434,7 @@ body {
 .cajagris{
     display:flex;
     border-radius: 10px;
-    background-color: grey;
+    background-color: white;
     width: 300px;
     height: 100px;
     justify-content: center;
@@ -371,16 +444,27 @@ body {
     z-index: 1;
 }
 .botonNuevo{
-    background-color: grey;
-    text-align: center;
-    color: black;
-    background-color: #D9D9D9;
-    border: 4px solid;
-    border-color: black;
-    justify-content: center;
+    width: 220px;
     height: 60px;
-    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #d9d9d9;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    border: #000 5px solid;
+    border-radius: 20px;
+
+
+    margin: 10px 0;
+    position: relative;
+    left: 20%;
 }
+
+
+
+
 
 
 
@@ -396,6 +480,8 @@ input{
 }
 
 
+
+
 .input1{
     width: 90px;
     height: 90px;
@@ -408,7 +494,11 @@ input{
     background-color: silver;
 
 
+
+
 }
+
+
 
 
 .visible {
@@ -423,10 +513,14 @@ input{
 }
 
 
+
+
 .hola{
   width: 200px;
   height: 15px;
 }
+
+
 
 
 dialog {
@@ -437,37 +531,36 @@ dialog {
 }
 
 
+
+
 dialog::backdrop {
     background: rgba(0, 0, 0, 0.5);
 }
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
+    width: 100%;
+    height: 100%; 
+    overflow: auto;
     background-color: #474e5d;
     padding-top: 50px;
   }
  
-  /* Modal Content/Box */
   .modal-content {
     background-color: #fefefe;
-    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    margin: 5% auto 15% auto; 
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 80%; 
   }
  
-  /* Style the horizontal ruler */
   hr {
     border: 1px solid #f1f1f1;
     margin-bottom: 25px;
   }
    
-  /* The Modal Close Button (x) */
   .close {
     position: absolute;
     right: 35px;
@@ -482,7 +575,8 @@ dialog::backdrop {
     color: #f44336;
     cursor: pointer;
   }
- 
+
+
 
 
   .clearfix::after {
@@ -492,27 +586,42 @@ dialog::backdrop {
   }
  
   .controlright {
-    width: 100px;
-    height: 100px;
-    border-bottom: 80px solid whitesmoke;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    transform: rotate(90deg);
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+    border-right: 50px solid #C12C2C; 
+    background-color: transparent;
 
 
+
+
+}
+
+.botonrojo{
+      width: 100px; 
+      height: 100px; 
+      color: white;
+      background-color: #C12C2C; 
+      border-radius: 50%; 
+      border-color: black;
 }
 
 
 .controlleft {
-    width: 100px;
-    height: 100px;
-    border-bottom: 80px solid whitesmoke;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    transform: rotate(-90deg);
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+    border-left: 50px solid #C12C2C; 
+    background-color: transparent;
+
+
 
 
 }
+
+
 
 
 .circulo2{
@@ -531,6 +640,8 @@ dialog::backdrop {
 }
 
 
+
+
 .circulo3{
     background: #474e5d;
     border-radius: 50%;
@@ -546,7 +657,11 @@ dialog::backdrop {
     display:none;
 
 
+
+
 }
+
+
 
 
 .circulo4{
@@ -559,12 +674,109 @@ dialog::backdrop {
     padding:1px;
     position: relative;
     right: 0px;
-   
     transition: transform 0.3s ease;
-    display:none;
-
-
+    display:none
 }
+
+.circulo5{
+    background: gray;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    align-content: center;
+    cursor: pointer;
+    padding:1px;
+    position: relative;
+    right: 0px;
+    transition: transform 0.3s ease;
+    display:none
+}
+
+.circulo6{
+    background: green;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    align-content: center;
+    cursor: pointer;
+    padding:1px;
+    position: relative;
+    right: 0px;
+    transition: transform 0.3s ease;
+    display:none
+}
+
+.circulo7{
+    background: yellow;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    align-content: center;
+    cursor: pointer;
+    padding:1px;
+    position: relative;
+    right: 0px;
+    transition: transform 0.3s ease;
+    display:none
+}
+
+.circulo8{
+    background: peru;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    align-content: center;
+    cursor: pointer;
+    padding:1px;
+    position: relative;
+    right: 0px;
+    transition: transform 0.3s ease;
+    display:none
+}
+
+.circulo9{
+    background:  fuchsia;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    align-content: center;
+    cursor: pointer;
+    padding:1px;
+    position: relative;
+    right: 0px;
+    transition: transform 0.3s ease;
+    display:none
+}
+
+.circulo10{
+    background: indigo;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    align-content: center;
+    cursor: pointer;
+    padding:1px;
+    position: relative;
+    right: 0px;
+    transition: transform 0.3s ease;
+    display:none
+}
+
+.circulo11{
+    background: orangered;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    align-content: center;
+    cursor: pointer;
+    padding:1px;
+    position: relative;
+    right: 0px;
+    transition: transform 0.3s ease;
+    display:none
+}
+
+
 
 
 .skindefault{
@@ -581,6 +793,32 @@ dialog::backdrop {
     transition: transform 0.3s ease;
     display:none;
 }
+.circulo13{
+    background: blue;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    align-content: center;
+    cursor: pointer;
+    padding:1px;
+    position: relative;
+    right: 0px;
+    transition: transform 0.3s ease;
+    display:none
+}
+.circulo14{
+    background: aqua;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    align-content: center;
+    cursor: pointer;
+    padding:1px;
+    position: relative;
+    right: 0px;
+    transition: transform 0.3s ease;
+    display:none
+}
 
 .circulo2Mostrador{
     background: #f44336;
@@ -596,7 +834,6 @@ dialog::backdrop {
     transition: transform 0.3s ease;
 }
 
-
 .circulo3Mostrador{
     background: #474e5d;
     border-radius: 50%;
@@ -609,6 +846,8 @@ dialog::backdrop {
     right: 0px;
    
     transition: transform 0.3s ease;
+
+
 
 
 }
@@ -628,7 +867,138 @@ dialog::backdrop {
     transition: transform 0.3s ease;
 
 
+
+
 }
+
+.circulo5Mostrador{
+    background: gray;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    align-content: center;
+    cursor: pointer;
+    padding:1px;
+    position: relative;
+    right: 0px;
+    transition: transform 0.3s ease;
+    display:none
+}
+
+.circulo6Mostrador{
+    background: green;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    align-content: center;
+    cursor: pointer;
+    padding:1px;
+    position: relative;
+    right: 0px;
+    transition: transform 0.3s ease;
+    display:none
+}
+
+.circulo7Mostrador{
+    background: yellow;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    align-content: center;
+    cursor: pointer;
+    padding:1px;
+    position: relative;
+    right: 0px;
+    transition: transform 0.3s ease;
+    display:none
+}
+
+.circulo8Mostrador{
+    background: peru;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    align-content: center;
+    cursor: pointer;
+    padding:1px;
+    position: relative;
+    right: 0px;
+    transition: transform 0.3s ease;
+    display:none
+}
+
+.circulo9Mostrador{
+    background:  fuchsia;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    align-content: center;
+    cursor: pointer;
+    padding:1px;
+    position: relative;
+    right: 0px;
+    transition: transform 0.3s ease;
+    display:none
+}
+
+.circulo10Mostrador{
+    background: indigo;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    align-content: center;
+    cursor: pointer;
+    padding:1px;
+    position: relative;
+    right: 0px;
+    transition: transform 0.3s ease;
+    display:none
+}
+
+.circulo11Mostrador{
+    background: orangered;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    align-content: center;
+    cursor: pointer;
+    padding:1px;
+    position: relative;
+    right: 0px;
+    transition: transform 0.3s ease;
+    display:none
+}
+
+
+
+
+.circulo13Mostrador{
+    background: blue;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    align-content: center;
+    cursor: pointer;
+    padding:1px;
+    position: relative;
+    right: 0px;
+    transition: transform 0.3s ease;
+    display:none
+}
+.circulo14Mostrador{
+    background: aqua;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    align-content: center;
+    cursor: pointer;
+    padding:1px;
+    position: relative;
+    right: 0px;
+    transition: transform 0.3s ease;
+    display:none
+}
+
 
 
 .skindefaultMostrador{
@@ -641,39 +1011,102 @@ dialog::backdrop {
     padding:1px;
     position: relative;
     right: 0px;
-    
+   
    
     transition: transform 0.3s ease;
 }
 
 
+
+
 dialog  {
     z-index: 10;
     margin-top: 10px;
-    background: transparent;
-    border:transparent;
-    width: 600px;
-    height: 200px;
+    background: #A89898;
+    border: black 5px solid;
+    width: 700px;
+    height: 400px;
+    position: relative;
+    left: 300px;
+    top: 150px;
    
   }
 
 
-.Options{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-   
+
+
+
+
+.Pedilo{
+    display: flex;
+    color: white;
+    background-color: #C12C2C;
+    border: 4px black solid;
+    justify-content: center;
+    border-radius: 25px;
+    height: 40px;
+    width: 400px;
+    margin: 10px;
+    position: relative;
+    top: 70px;
+    left: 100px;
 }
 
 
 .RebornChose{
-    background-color: #90EE90;
-    border: 5px solid black;
+    margin: 3%;
+    background-color: #D9D9D9;
+    border: 5px solid transparent;
+    border-radius: 15px;
+    width: 600px;
+    height: 300px;
 }
 
+
+.RebornChose2{
+    background-color: peachpuff;
+    border: 5px solid transparent;
+    border-radius: 15px;
+    width: 100%;
+    height: 100px;
+    position: relative;
+    top: 70px;
+    justify-items: center;
+    
+}
+
+
+
+.contenedordecontroles{
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    top: 100px;
+    left: 140px;
+}
+
+.tituloskins{
+    color: white;
+}
+
+.Fondogris{
+    margin: 3%;
+    background-color: #D9D9D9;
+    border: 5px solid transparent;
+    border-radius: 15px;
+    width: 600px;
+    height: 300px;
+}
 
 .HiddenOptions{
     z-index: -1;
 }
+
 
 .roulette-wrapper{
     position:relative;
@@ -683,8 +1116,8 @@ dialog  {
     margin:0 auto;
     overflow:hidden;
   }
-  
-  
+ 
+ 
   .roulette-wrapper .selector{
     width:3px;
     background:grey;
@@ -694,18 +1127,18 @@ dialog  {
     position:absolute;
     z-index:10;
   }
-  
-  
+ 
+ 
   .roulette-wrapper .wheel{
     display:flex;
   }
-  
-  
+ 
+ 
   .roulette-wrapper .wheel .row{
     display:flex;
   }
-  
-  
+ 
+ 
   .roulette-wrapper .wheel .row .card{
     height:75px;
     width:75px;
@@ -718,27 +1151,27 @@ dialog  {
     color:white;
     font-size:1.5em;
   }
-  
-  
+ 
+ 
   .card.red{
     background:#F95146;
   }
-  
-  
+ 
+ 
   .card.black{
     background:#2D3035;
   }
-  
-  
+ 
+ 
   .card.green{
     background:#00C74D;
   }
-  
-  
+ 
+ 
   *{
     box-sizing:border-box;
   }
-  
+ 
   .BarConteiner {
     width: 50px;
     height: 300px;
@@ -749,7 +1182,11 @@ dialog  {
     border: 1px solid #ccc;
 
 
+
+
 }
+
+
 
 
 .BarContent {
@@ -763,10 +1200,16 @@ dialog  {
     border: 1px solid #ccc;
 
 
+
+
  
 
 
+
+
 }
+
+
 
 
 .Boton-container {
@@ -778,7 +1221,11 @@ dialog  {
     border: 1px solid #ccc;
 
 
+
+
 }
+
+
 
 
 .Boton{
@@ -792,15 +1239,19 @@ dialog  {
     border-radius: 50%;
 }
 
+
 .Cofre{
-    height: 15vh;
-    width: 15vh;
-    background-color: burlywood;
+    height: 100px;
+    width: 100px;
     margin: 2px;
+    background-image: url(https://th.bing.com/th/id/OIP.E28vAXeGBMnVe2nayBWJKQHaHa?w=172&h=180&c=7&r=0&o=5&pid=1.7);
+    background-size: cover;
+background-size: contain;
 }
 
+
 .Conteiner{
-  height: 100%px;
+  height: 100%;
   width: 100%;
   display: flex;
   flex-direction: row;
