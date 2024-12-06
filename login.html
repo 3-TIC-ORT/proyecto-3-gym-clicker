@@ -44,8 +44,8 @@
             return new Promise((resolve) => {
                 setTimeout(() => {
                     console.log('Usuario autenticado en el servidor:', username);
-                    resolve(true); // Simula autenticación exitosa
-                }, 1500); // Simula un retraso de 1.5 segundos
+                    resolve(true); 
+                }, 1500); 
             });
         }
     
@@ -65,7 +65,9 @@
             }
     
             try {
-                const serverAuth = await authenticateUser(nombre, password);
+                const serverAut
+                
+                h = await authenticateUser(nombre, password);
     
                 if (!serverAuth) {
                     loginMessage.textContent = 'Error al autenticar con el servidor.';

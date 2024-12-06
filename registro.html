@@ -37,17 +37,15 @@
 
         <p id="registerMessage"></p>
 
-        <!-- Botón para redirigir a la pantalla de registro -->
         <button id="login" class="login-button">LOG IN</button>
     </div>
 
     <script>
         async function saveUserToServer(userData) {
             return new Promise((resolve) => {
-                setTimeout(() => {
-                    console.log('Usuario registrado en el servidor:', userData);
+                setTimeout(() => { 
                     resolve('Registro exitoso');
-                }, 2000); // Simula un retraso de 2 segundos
+                }, 3000); 
             });
         }
     
